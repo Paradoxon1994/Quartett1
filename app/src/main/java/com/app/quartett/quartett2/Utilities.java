@@ -15,7 +15,7 @@ public class Utilities {
     public static String loadJSONFromAsset(Context context,String deckName) {
         String json = null;
         try {
-            InputStream is = context.getAssets().open(deckName+".json");
+            InputStream is = context.getAssets().open(deckName +"/" + deckName +".json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
