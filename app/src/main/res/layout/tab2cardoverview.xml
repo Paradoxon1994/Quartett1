@@ -70,7 +70,7 @@
             android:background="@drawable/arrowr" />
 
         <ImageView
-            android:id="@+id/carPictureInGameImageView"
+            android:id="@+id/cardPictureInGameImageView"
             android:layout_width="200dp"
             android:layout_height="120dp"
             android:layout_below="@+id/nameTextView"
@@ -82,8 +82,8 @@
             android:id="@+id/attr1OverviewTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/carPictureInGameImageView"
-            android:layout_below="@+id/carPictureInGameImageView"
+            android:layout_alignStart="@+id/cardPictureInGameImageView"
+            android:layout_below="@+id/cardPictureInGameImageView"
             android:layout_marginTop="16dp"
             android:text="Baujahr" />
 
@@ -123,9 +123,9 @@
             android:id="@+id/attr1ValueOverviewTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/carPictureInGameImageView"
+            android:layout_alignEnd="@+id/cardPictureInGameImageView"
             android:layout_marginTop="16dp"
-            android:layout_below="@+id/carPictureInGameImageView"
+            android:layout_below="@+id/cardPictureInGameImageView"
             android:text="0" />
 
         <TextView

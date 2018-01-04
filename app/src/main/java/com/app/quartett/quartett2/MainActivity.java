@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
+    public static Deck loadedDeck;
+
     /**
      * The {@link ViewPager} that will host the section contents.
      */
@@ -66,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
+        loadedDeck = readDeck("bikes");
+
         //Floating Action Button if needed
         /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
     public Deck readDeck(String deckName) {
         Deck deck = new Deck();
         try {
-
 
             ArrayList<Card> cardArrayList = new ArrayList<>();
             ArrayList<Property> propertyArrayList = new ArrayList<>();
@@ -235,5 +238,9 @@ public class MainActivity extends AppCompatActivity {
             }
             return null;
         }
+    }
+
+    public static Deck getDeck(){
+        return loadedDeck;
     }
 }
