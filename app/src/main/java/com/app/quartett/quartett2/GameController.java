@@ -43,8 +43,10 @@ public class GameController {
 
             //TODO: get next card and repeat
         }
+        //TODO: add stats to player profile with same name, possibly create stats file
 
 
+        //returning if player won the game or not
         return true;
     }
 
