@@ -1,34 +1,17 @@
 package com.app.quartett.quartett2.model;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 /**
  * Created by Jens on 04/01/2018.
  */
 
 public class Player {
     private String name;
-    private int numberOfCards;
-    private int numberOfGamesPlayed;
-    private int numberOfGamesWon;
-    private double avgCards;
+    private ArrayList<Card> cards;
 
-    public Player(String name) {
-        this.name = name;
-    }
-
-    public Player(){
-
-    }
-
-    @Override
-    public String toString() {
-        return "Player{" +
-                "name='" + name + '\'' +
-                ", numberOfCards=" + numberOfCards +
-                ", numberOfGamesPlayed=" + numberOfGamesPlayed +
-                ", numberOfGamesWon=" + numberOfGamesWon +
-                ", avgCards=" + avgCards +
-                '}';
-    }
 
     public String getName() {
         return name;
@@ -38,35 +21,33 @@ public class Player {
         this.name = name;
     }
 
-    public int getNumberOfCards() {
-        return numberOfCards;
+    public ArrayList<Card> getCards() {
+        return cards;
     }
 
-    public void setNumberOfCards(int numberOfCards) {
-        this.numberOfCards = numberOfCards;
+    public void setCards(ArrayList<Card> cards) {
+        this.cards = cards;
     }
 
-    public int getNumberOfGamesPlayed() {
-        return numberOfGamesPlayed;
+    public Player(String name, ArrayList<Card> cards) {
+
+        this.name = name;
+        this.cards = cards;
     }
 
-    public void setNumberOfGamesPlayed(int numberOfGamesPlayed) {
-        this.numberOfGamesPlayed = numberOfGamesPlayed;
+    public Card removeCard(int id){
+        Card a=null;
+        for(Iterator<Card> iter = cards.listIterator();iter.hasNext();){
+            a =iter.next();
+            if(a.getId()==id){
+                iter.remove();
+            }
+        }
+        return a;
     }
 
-    public int getNumberOfGamesWon() {
-        return numberOfGamesWon;
-    }
 
-    public void setNumberOfGamesWon(int numberOfGamesWon) {
-        this.numberOfGamesWon = numberOfGamesWon;
-    }
-
-    public double getAvgCards() {
-        return avgCards;
-    }
-
-    public void setAvgCards(double avgCards) {
-        this.avgCards = avgCards;
+    public void addCard(Card card){
+        cards.add(0,card);
     }
 }
