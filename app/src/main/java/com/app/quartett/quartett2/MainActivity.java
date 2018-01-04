@@ -2,8 +2,6 @@ package com.app.quartett.quartett2;
 
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -15,7 +13,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
+
+import com.app.quartett.quartett2.model.Card;
+import com.app.quartett.quartett2.model.Deck;
+import com.app.quartett.quartett2.model.Image;
+import com.app.quartett.quartett2.model.Property;
+import com.app.quartett.quartett2.model.Value;
+import com.app.quartett.quartett2.view.Tab1MainMenu;
+import com.app.quartett.quartett2.view.Tab2CardOverview;
+import com.app.quartett.quartett2.view.Tab3Manual;
 
 import org.json.JSONArray;
 import org.json.JSONException;
