@@ -1,0 +1,167 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageButton
+            android:id="@+id/leftArrowImageButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/nameTextView"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/arrowl" />
+
+        <TextView
+            android:id="@+id/firstNumberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/leftArrowImageButton"
+            android:layout_marginStart="18dp"
+            android:layout_toEndOf="@+id/leftArrowImageButton"
+            android:text="4"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/firstNumberTextView"
+            android:layout_alignBottom="@+id/leftArrowImageButton"
+            android:text="/"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/secondNumberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/textView2"
+            android:layout_alignBottom="@+id/leftArrowImageButton"
+            android:text="20"
+            android:textSize="30sp" />
+
+
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/leftArrowImageButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="Mercedes G-Klasse 4x4 sqaured"
+            android:textSize="18sp" />
+
+        <ImageButton
+            android:id="@+id/rightArrowImageButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="18dp"
+            android:layout_toEndOf="@+id/secondNumberTextView"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/arrowr" />
+
+        <ImageView
+            android:id="@+id/carPictureInGameImageView"
+            android:layout_width="200dp"
+            android:layout_height="120dp"
+            android:layout_below="@+id/nameTextView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            app:srcCompat="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/attr1OverviewTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/carPictureInGameImageView"
+            android:layout_below="@+id/carPictureInGameImageView"
+            android:layout_marginTop="16dp"
+            android:text="Baujahr" />
+
+        <TextView
+            android:id="@+id/attr2OverviewTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/attr1OverviewTextView"
+            android:layout_below="@+id/attr1OverviewTextView"
+            android:text="Zylinder" />
+
+        <TextView
+            android:id="@+id/attr3OverviewTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/attr2OverviewTextView"
+            android:layout_below="@+id/attr2OverviewTextView"
+            android:text="Gewicht" />
+
+        <TextView
+            android:id="@+id/attr4OverviewTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/attr3OverviewTextView"
+            android:layout_below="@+id/attr3OverviewTextView"
+            android:text="Geschwindigkeit" />
+
+        <TextView
+            android:id="@+id/attr5OverviewTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/attr4OverviewTextView"
+            android:layout_below="@+id/attr4OverviewTextView"
+            android:text="Leistung" />
+
+        <TextView
+            android:id="@+id/attr1ValueOverviewTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/carPictureInGameImageView"
+            android:layout_marginTop="16dp"
+            android:layout_below="@+id/carPictureInGameImageView"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/attr2ValueOverviewTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/attr1ValueOverviewTextView"
+            android:layout_below="@+id/attr1ValueOverviewTextView"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/attr3ValueOverviewTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/attr2ValueOverviewTextView"
+            android:layout_below="@+id/attr2ValueOverviewTextView"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/attr4ValueOverviewTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/attr3ValueOverviewTextView"
+            android:layout_below="@+id/attr3ValueOverviewTextView"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/attr5ValueOverviewTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/attr4ValueOverviewTextView"
+            android:layout_below="@+id/attr4ValueOverviewTextView"
+            android:text="0" />
+
+
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

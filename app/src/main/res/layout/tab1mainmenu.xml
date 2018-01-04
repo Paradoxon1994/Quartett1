@@ -1,0 +1,111 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/themeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="16dp"
+            android:layout_toStartOf="@+id/newGame"
+            android:text="Theme:"
+            android:textSize="32sp"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/themeImageView"
+            android:layout_width="250dp"
+            android:layout_height="125dp"
+            android:layout_below="@+id/themeTextView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/fidgetspinnertheme" />
+
+        <Button
+            android:id="@+id/newGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_below="@+id/themeImageView"
+            android:layout_marginTop="16dp"
+            android:text="NEW GAME" />
+
+        <Button
+            android:id="@+id/categories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/newGame"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="Categories" />
+
+        <TextView
+            android:id="@+id/numberOfGamesTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/newGame"
+            android:layout_below="@+id/categories"
+            android:layout_marginTop="32dp"
+            android:textSize="18sp"
+            android:text="Number of games " />
+
+        <TextView
+            android:id="@+id/wonTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/numberOfGamesTextView"
+            android:layout_below="@+id/numberOfGamesTextView"
+            android:textSize="18sp"
+            android:text="Won" />
+
+        <TextView
+            android:id="@+id/averageCardsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/numberOfGamesTextView"
+            android:layout_below="@+id/wonTextView"
+            android:textSize="18sp"
+            android:text="Average Cards" />
+
+        <TextView
+            android:id="@+id/numberOfGamesNumberTextView"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_alignTop="@+id/numberOfGamesTextView"
+            android:layout_toEndOf="@+id/numberOfGamesTextView"
+            android:textSize="18sp"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/wonNumberTextView"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_below="@+id/numberOfGamesTextView"
+            android:layout_toEndOf="@+id/numberOfGamesTextView"
+            android:textSize="18sp"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/averageCardsNumberTextView"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_alignStart="@+id/wonNumberTextView"
+            android:layout_below="@+id/wonNumberTextView"
+            android:textSize="18sp"
+            android:text="0" />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

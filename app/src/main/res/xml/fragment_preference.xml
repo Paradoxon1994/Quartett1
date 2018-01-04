@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <PreferenceCategory
+            android:title="GAME PREFERENCES">
+
+
+            <com.app.quartett.quartett2.NumberPickerPreference
+                android:key="numberOfRounds"
+                android:title="NUMBER OF ROUNDS"
+                android:defaultValue="30" />
+
+            <com.app.quartett.quartett2.NumberPickerPreference
+                android:key="selectionTime"
+                android:title="SELECTION TIME"
+                android:defaultValue="10" />
+
+            <ListPreference
+                android:key="difficultyPreference"
+                android:title="DIFFICULTY"
+                android:entries="@array/difficultentries"
+                android:entryValues="@array/difficultvalues" />
+
+            <CheckBoxPreference
+                android:key="notification"
+                android:title="NOTIFICATION" />
+
+            <EditTextPreference
+                android:key="test"
+                android:title="test" />
+
+
+
+        </PreferenceCategory>
+
+</PreferenceScreen>
