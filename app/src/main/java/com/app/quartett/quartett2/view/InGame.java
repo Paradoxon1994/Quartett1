@@ -6,6 +6,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.app.quartett.quartett2.GameController;
 import com.app.quartett.quartett2.R;
 
 
@@ -24,6 +25,8 @@ public class InGame extends Activity {
 
     //number of the ongoing round
     public TextView numberOfRoundTextView;
+
+    private GameController gameController;
 
 
 
