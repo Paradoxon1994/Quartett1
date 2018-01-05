@@ -57,8 +57,8 @@ public class Tab1MainMenu extends Fragment{
     }
 
     public static void switchTheme(){
-        if(Categories.getSelectedDeck() == "bike"){
-            themeImageView.setImageResource(R.drawable.bike1);
+        if(Categories.getSelectedDeck() == "bikes"){
+            themeImageView.setImageResource(R.drawable.bikes1);
         } else {
             themeImageView.setImageResource(R.drawable.tuning1);
         }

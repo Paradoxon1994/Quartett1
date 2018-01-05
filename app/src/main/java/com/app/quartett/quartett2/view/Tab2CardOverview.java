@@ -73,7 +73,7 @@ public class Tab2CardOverview extends Fragment{
         //setting up right number of carddeck
         firstNumberTextView.setText("1");
         secondNumberTextView.setText(String.valueOf(deck.getCards().size()));
-        cardPictureImageView.setImageResource(R.drawable.bike1);
+        cardPictureImageView.setImageResource(R.drawable.bikes1);
 
 
         nameTextField.setText(initialCard.getName());
@@ -132,7 +132,7 @@ public class Tab2CardOverview extends Fragment{
 
         //selecting the correct picture
         actualPicture = Categories.getSelectedDeck();
-        attr6OverviewTextView.setText(actualPicture);
+        attr3OverviewTextView.setText(actualPicture);
         actualPicture += nextPosition;
         cardPictureImageView.setImageResource(getDrawable(getContext(), actualPicture));
 
@@ -222,11 +222,6 @@ public class Tab2CardOverview extends Fragment{
         //scores
         firstNumberTextView = (TextView) v.getRootView().findViewById(R.id.firstNumberTextView);
         secondNumberTextView = (TextView) v.getRootView().findViewById(R.id.secondNumberTextView);
-
-
-
-
-
     }
 
 }

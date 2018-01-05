@@ -27,7 +27,7 @@
             android:layout_below="@+id/themeTextView"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="8dp"
-            android:src="@drawable/bike1" />
+            android:src="@drawable/bikes1" />
 
         <Button
             android:id="@+id/newGame"

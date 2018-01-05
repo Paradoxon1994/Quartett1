@@ -20,11 +20,9 @@ public class Categories extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        selectedDeck = "bike";
+        selectedDeck = "bikes";
         super.onCreate(savedInstanceState);
         setContentView(R.layout.categories);
-
-
 
         //initialization
         initialize(findViewById(android.R.id.content));
@@ -39,7 +37,7 @@ public class Categories extends AppCompatActivity {
         theme1ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                selectedDeck = "bike";
+                selectedDeck = "bikes";
                 Tab1MainMenu.switchTheme();
                 finish();
             }
