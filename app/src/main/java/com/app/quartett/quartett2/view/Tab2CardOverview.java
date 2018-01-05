@@ -58,6 +58,7 @@ public class Tab2CardOverview extends Fragment{
     public Deck deck;
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -66,14 +67,6 @@ public class Tab2CardOverview extends Fragment{
 
         //initializing
         initialize(rootView);
-
-        return rootView;
-    }
-
-    @Override
-    public void onStart()
-    {
-        super.onStart();
 
         //setting up right dialogs for the first time when app is started
         deck = MainActivity.getDeck();
@@ -106,7 +99,17 @@ public class Tab2CardOverview extends Fragment{
             }
         });
 
+        return rootView;
     }
+
+   /* @Override
+    public void onStart()
+    {
+        super.onStart();
+
+
+
+    }*/
 
     private void loadCard(Card card) {
 
@@ -125,6 +128,8 @@ public class Tab2CardOverview extends Fragment{
             }
             i++;
         }
+
+        //TODO: change Image
     }
 
 
@@ -155,7 +160,7 @@ public class Tab2CardOverview extends Fragment{
         }
 
         firstNumberTextView.setText(String.valueOf(nextPosition));
-        Card card = deck.getCards().get(nextPosition);
+        Card card = deck.getCards().get(nextPosition-1);
         loadCard(card);
     }
 

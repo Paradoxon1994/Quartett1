@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/notImportant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:textSize="25sp"
+            android:text="SELECT YOUR THEME" />
+
+        <ImageView
+            android:id="@+id/theme1ImageView"
+            android:layout_width="250dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/notImportant"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:src="@drawable/bike1"/>
+
+        <ImageView
+            android:id="@+id/theme2ImageView"
+            android:layout_width="250dp"
+            android:layout_height="150dp"
+            android:layout_below="@+id/theme1ImageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/fidgetspinnertheme"
+            android:clickable="true"
+            />
+
+
+
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

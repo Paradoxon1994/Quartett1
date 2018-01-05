@@ -21,8 +21,6 @@ public class MyPreferenceFragment extends PreferenceFragment
     //checkbox for notification
     public CheckBoxPreference notification;
 
-    //test stuff
-    public EditTextPreference test;
 
 
 

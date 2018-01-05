@@ -248,4 +248,5 @@ public class MainActivity extends AppCompatActivity {
     public static Deck getDeck(){
         return loadedDeck;
     }
+
 }
