@@ -19,6 +19,7 @@ import com.app.quartett.quartett2.model.Deck;
 import com.app.quartett.quartett2.model.Image;
 import com.app.quartett.quartett2.model.Property;
 import com.app.quartett.quartett2.model.Value;
+import com.app.quartett.quartett2.view.Categories;
 import com.app.quartett.quartett2.view.Tab1MainMenu;
 import com.app.quartett.quartett2.view.Tab2CardOverview;
 import com.app.quartett.quartett2.view.Tab3Manual;
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
-    public static Deck loadedDeck;
+    private static Deck loadedDeck;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -87,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public Deck readDeck(String deckName) {
+    public  Deck readDeck(String deckName) {
         Deck deck = new Deck();
         try {
 
@@ -248,5 +249,13 @@ public class MainActivity extends AppCompatActivity {
     public static Deck getDeck(){
         return loadedDeck;
     }
+
+    public static Deck getLoadedDeck(){
+        return loadedDeck;
+    }
+
+    /*public static void setLoadedDeck(String deck){
+        loadedDeck = readDeck(deck);
+    }*/
 
 }

@@ -38,10 +38,6 @@ public class Tab1MainMenu extends Fragment{
         initialize(rootView);
 
 
-
-
-
-
         return rootView;
     }
 
@@ -61,11 +57,10 @@ public class Tab1MainMenu extends Fragment{
     }
 
     public static void switchTheme(){
-        if(Categories.selectedDeck == "bikes"){
+        if(Categories.getSelectedDeck() == "bike"){
             themeImageView.setImageResource(R.drawable.bike1);
         } else {
-            themeImageView.setImageResource(R.drawable.fidgetspinnertheme);
-            //TODO: change to correct Image
+            themeImageView.setImageResource(R.drawable.tuning1);
         }
     }
 

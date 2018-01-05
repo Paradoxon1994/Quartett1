@@ -15,16 +15,20 @@ public class Categories extends AppCompatActivity {
     public ImageView theme1ImageView, theme2ImageView;
 
     //selected Deck
-    public static String selectedDeck;
+    private static String selectedDeck;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        selectedDeck = "bike";
         super.onCreate(savedInstanceState);
         setContentView(R.layout.categories);
 
+
+
         //initialization
         initialize(findViewById(android.R.id.content));
+
 
     }
 
@@ -35,7 +39,7 @@ public class Categories extends AppCompatActivity {
         theme1ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                selectedDeck = "bikes";
+                selectedDeck = "bike";
                 Tab1MainMenu.switchTheme();
                 finish();
             }
@@ -52,6 +56,10 @@ public class Categories extends AppCompatActivity {
 
     }
 
+
+    public static String getSelectedDeck(){
+        return selectedDeck;
+    }
 
     public void initialize(View v){
         theme1ImageView = (ImageView) v.getRootView().findViewById(R.id.theme1ImageView);

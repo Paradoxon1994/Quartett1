@@ -38,7 +38,7 @@
             android:layout_below="@+id/theme1ImageView"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="32dp"
-            android:src="@drawable/fidgetspinnertheme"
+            android:src="@drawable/tuning1"
             android:clickable="true"
             />
 

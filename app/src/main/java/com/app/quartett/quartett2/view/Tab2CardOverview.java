@@ -2,10 +2,7 @@ package com.app.quartett.quartett2.view;
 
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
+
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -23,11 +20,7 @@ import com.app.quartett.quartett2.model.Property;
 import com.app.quartett.quartett2.model.Value;
 
 import junit.framework.Assert;
-import junit.framework.Test;
 
-import org.w3c.dom.Text;
-
-import java.io.File;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
@@ -60,6 +53,7 @@ public class Tab2CardOverview extends Fragment{
 
     public Deck deck;
 
+    public String actualPicture;
 
 
 
@@ -106,16 +100,8 @@ public class Tab2CardOverview extends Fragment{
         return rootView;
     }
 
-   /* @Override
-    public void onStart()
-    {
-        super.onStart();
 
-
-
-    }*/
-
-    private void loadCard(Card card) {
+    public void loadCard(Card card) {
 
         nameTextField.setText(card.getName());
         //setting up right properties with values
@@ -145,14 +131,14 @@ public class Tab2CardOverview extends Fragment{
         }
 
         //selecting the correct picture
-        String actualPicture = "bike";
+        actualPicture = Categories.getSelectedDeck();
+        attr6OverviewTextView.setText(actualPicture);
         actualPicture += nextPosition;
         cardPictureImageView.setImageResource(getDrawable(getContext(), actualPicture));
 
         firstNumberTextView.setText(String.valueOf(nextPosition));
         Card card = deck.getCards().get(nextPosition-1);
         loadCard(card);
-
     }
 
     private void previousCard() {
@@ -166,7 +152,7 @@ public class Tab2CardOverview extends Fragment{
         }
 
         //selection the correct picture
-        String actualPicture = "bike";
+        actualPicture = Categories.getSelectedDeck();
         actualPicture += nextPosition;
         cardPictureImageView.setImageResource(getDrawable(getContext(), actualPicture));
 
