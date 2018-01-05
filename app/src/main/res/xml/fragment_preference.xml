@@ -25,12 +25,6 @@
                 android:key="notification"
                 android:title="NOTIFICATION" />
 
-            <EditTextPreference
-                android:key="test"
-                android:title="test" />
-
-
-
         </PreferenceCategory>
 
 </PreferenceScreen>
