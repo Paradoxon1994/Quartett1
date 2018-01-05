@@ -2,7 +2,6 @@ package com.app.quartett.quartett2.view;
 
 
 import android.content.Intent;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;

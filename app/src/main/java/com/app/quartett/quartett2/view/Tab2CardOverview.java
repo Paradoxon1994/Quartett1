@@ -53,7 +53,9 @@ public class Tab2CardOverview extends Fragment{
 
     public Deck deck;
 
+
     public String actualPicture;
+
 
 
 
@@ -61,27 +63,33 @@ public class Tab2CardOverview extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        actualPicture = "bikes";
         View rootView = inflater.inflate(R.layout.tab2cardoverview, container, false);
 
         //initializing
         initialize(rootView);
 
         //setting up right dialogs for the first time when app is started
-        deck = MainActivity.getDeck();
+        deck = MainActivity.getLoadedDeck();
         Card initialCard = deck.getCards().get(0);
+
+        Categories.setSelectedDeck("bikes");
 
         //setting up right number of carddeck
         firstNumberTextView.setText("1");
         secondNumberTextView.setText(String.valueOf(deck.getCards().size()));
         cardPictureImageView.setImageResource(R.drawable.bikes1);
 
-
-        nameTextField.setText(initialCard.getName());
+        //nameTextField.setText(initialCard.getName());
 
         //load card stats into UI
         loadCard(initialCard);
 
+        return rootView;
+    }
 
+    @Override
+    public void onStart(){
 
         rightArrowImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,18 +104,19 @@ public class Tab2CardOverview extends Fragment{
                 previousCard();
             }
         });
-
-        return rootView;
+        super.onStart();
     }
 
 
     public void loadCard(Card card) {
 
+        //attr1OverviewTextView.setText(actualPicture);
+
         nameTextField.setText(card.getName());
         //setting up right properties with values
         int i = 0;
         NumberFormat nf = new DecimalFormat("##.##");
-        for (Property p : deck.getProperties()) {
+        for (Property p : MainActivity.getLoadedDeck().getProperties()) {
             attributeOverviews[i].setText(p.getText());
             for (Value v:card.getValues()) {
                 if(v.getPropertyId() == p.getId()){
@@ -124,7 +133,7 @@ public class Tab2CardOverview extends Fragment{
 
         int currentPosition = Integer.parseInt(firstNumberTextView.getText().toString());
         int nextPosition;
-        if(currentPosition == deck.getCards().size()) {
+        if(currentPosition == MainActivity.getLoadedDeck().getCards().size()) {
             nextPosition = 1;
         } else {
             nextPosition = currentPosition + 1;
@@ -132,13 +141,12 @@ public class Tab2CardOverview extends Fragment{
 
         //selecting the correct picture
         actualPicture = Categories.getSelectedDeck();
-        attr3OverviewTextView.setText(actualPicture);
         actualPicture += nextPosition;
         cardPictureImageView.setImageResource(getDrawable(getContext(), actualPicture));
 
         firstNumberTextView.setText(String.valueOf(nextPosition));
-        Card card = deck.getCards().get(nextPosition-1);
-        loadCard(card);
+        Card nextCard = MainActivity.getLoadedDeck().getCards().get(nextPosition-1);
+        loadCard(nextCard);
     }
 
     private void previousCard() {
@@ -157,8 +165,8 @@ public class Tab2CardOverview extends Fragment{
         cardPictureImageView.setImageResource(getDrawable(getContext(), actualPicture));
 
         firstNumberTextView.setText(String.valueOf(nextPosition));
-        Card card = deck.getCards().get(nextPosition-1);
-        loadCard(card);
+        Card previousCard = MainActivity.getLoadedDeck().getCards().get(nextPosition-1);
+        loadCard(previousCard);
     }
 
 
@@ -222,6 +230,8 @@ public class Tab2CardOverview extends Fragment{
         //scores
         firstNumberTextView = (TextView) v.getRootView().findViewById(R.id.firstNumberTextView);
         secondNumberTextView = (TextView) v.getRootView().findViewById(R.id.secondNumberTextView);
+
+        actualPicture = MainActivity.deckName;
     }
 
 }

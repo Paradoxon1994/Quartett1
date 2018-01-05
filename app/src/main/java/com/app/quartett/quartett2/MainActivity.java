@@ -19,7 +19,6 @@ import com.app.quartett.quartett2.model.Deck;
 import com.app.quartett.quartett2.model.Image;
 import com.app.quartett.quartett2.model.Property;
 import com.app.quartett.quartett2.model.Value;
-import com.app.quartett.quartett2.view.Categories;
 import com.app.quartett.quartett2.view.Tab1MainMenu;
 import com.app.quartett.quartett2.view.Tab2CardOverview;
 import com.app.quartett.quartett2.view.Tab3Manual;
@@ -49,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
      */
     private ViewPager mViewPager;
 
+    public static String deckName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -56,7 +57,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        loadedDeck = readDeck("bikes");
+        deckName = "bikes";
+
+
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -86,7 +89,11 @@ public class MainActivity extends AppCompatActivity {
             }
         }); */
 
+        loadedDeck = readDeck("bikes");
+
+
     }
+
 
     public  Deck readDeck(String deckName) {
         Deck deck = new Deck();
@@ -246,8 +253,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public static Deck getDeck(){
-        return loadedDeck;
+    public Deck changeDeckRead(String s){
+        return readDeck(s);
     }
 
     public static Deck getLoadedDeck(){

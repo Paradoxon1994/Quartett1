@@ -1,12 +1,12 @@
 package com.app.quartett.quartett2.view;
 
-import android.support.design.widget.TabLayout;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.app.quartett.quartett2.MainActivity;
 import com.app.quartett.quartett2.R;
 
 public class Categories extends AppCompatActivity {
@@ -14,13 +14,15 @@ public class Categories extends AppCompatActivity {
     //imageviews for themes
     public ImageView theme1ImageView, theme2ImageView;
 
+    public TextView textView3;
+
     //selected Deck
     private static String selectedDeck;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        selectedDeck = "bikes";
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.categories);
 
@@ -39,6 +41,7 @@ public class Categories extends AppCompatActivity {
             public void onClick(View view) {
                 selectedDeck = "bikes";
                 Tab1MainMenu.switchTheme();
+                //MainActivity.setDeckName(selectedDeck);
                 finish();
             }
         });
@@ -48,6 +51,7 @@ public class Categories extends AppCompatActivity {
             public void onClick(View view) {
                 selectedDeck = "tuning";
                 Tab1MainMenu.switchTheme();
+                //MainActivity.setDeckName(selectedDeck);
                 finish();
             }
         });
@@ -59,8 +63,13 @@ public class Categories extends AppCompatActivity {
         return selectedDeck;
     }
 
+    public static void setSelectedDeck(String s){
+        selectedDeck = s;
+    }
+
     public void initialize(View v){
         theme1ImageView = (ImageView) v.getRootView().findViewById(R.id.theme1ImageView);
         theme2ImageView = (ImageView) v.getRootView().findViewById(R.id.theme2ImageView);
+        textView3 = (TextView) v.getRootView().findViewById(R.id.textView3);
     }
 }
