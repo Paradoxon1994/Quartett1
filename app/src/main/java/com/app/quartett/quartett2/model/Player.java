@@ -35,6 +35,10 @@ public class Player {
         this.cards = cards;
     }
 
+    public Player(String name){
+        this.name = name;
+    }
+
     public Card removeCard(int id){
         Card a=null;
         for(Iterator<Card> iter = cards.listIterator();iter.hasNext();){

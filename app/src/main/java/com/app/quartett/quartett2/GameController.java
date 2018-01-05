@@ -6,6 +6,8 @@ import com.app.quartett.quartett2.model.Game;
 import com.app.quartett.quartett2.model.Player;
 import com.app.quartett.quartett2.model.Property;
 
+import java.util.ArrayList;
+
 /**
  * Created by Jens on 04/01/2018.
  */
@@ -18,6 +20,24 @@ public class GameController {
     private Player ki;
 
     public boolean startGame(){
+
+        ki=new Player("ki");
+
+
+        ArrayList<Card> playerCards = new ArrayList<>();
+        ArrayList<Card> kiCards = new ArrayList<>();
+
+
+
+        for(int i=0;i<(deck.getCards().size()/2);i++){
+            playerCards.add(deck.getCards().get(i));
+        }
+
+        for (int i=deck.getCards().size()/2;i<deck.getCards().size();i++){
+            kiCards.add(deck.getCards().get(i));
+        }
+
+
 
         Card playerCard;
         Card kiCard;

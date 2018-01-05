@@ -1,5 +1,7 @@
 package com.app.quartett.quartett2.model;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,10 +12,10 @@ public class Deck {
 
     private String name;
     private String description;
-    private List<Card> cards;
-    private List<Property> properties;
+    private ArrayList<Card> cards;
+    private ArrayList<Property> properties;
 
-    public Deck(String name, String description, List<Card> cards, List<Property> properties) {
+    public Deck(String name, String description, ArrayList<Card> cards, ArrayList<Property> properties) {
         this.name = name;
         this.description = description;
         this.cards = cards;
@@ -54,7 +56,7 @@ public class Deck {
         return cards;
     }
 
-    public void setCards(List<Card> cards) {
+    public void setCards(ArrayList<Card> cards) {
         this.cards = cards;
     }
 
@@ -62,7 +64,7 @@ public class Deck {
         return properties;
     }
 
-    public void setProperties(List<Property> properties) {
+    public void setProperties(ArrayList<Property> properties) {
         this.properties = properties;
     }
 }
