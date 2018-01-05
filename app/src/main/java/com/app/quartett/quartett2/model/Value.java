@@ -41,4 +41,7 @@ public class Value {
         this.propertyId = propertyId;
         this.value = value;
     }
+    public Value(){
+
+    }
 }

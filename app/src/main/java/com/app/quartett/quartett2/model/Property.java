@@ -70,4 +70,8 @@ public class Property {
         this.unit = unit;
         this.precision = precision;
     }
+
+    public Property(){
+
+    }
 }

@@ -35,19 +35,27 @@ public class Player {
         this.cards = cards;
     }
 
-    public Card removeCard(int id){
-        Card a=null;
+    public Player(String name){
+        this.name = name;
+    }
+
+    public Card removeCard(){
+        /*Card a=null;
         for(Iterator<Card> iter = cards.listIterator();iter.hasNext();){
             a =iter.next();
             if(a.getId()==id){
                 iter.remove();
             }
         }
+        return a;*/
+
+        Card a = cards.get(0);
+        cards.remove(0);
         return a;
     }
 
 
     public void addCard(Card card){
-        cards.add(0,card);
+        cards.add(card);
     }
 }
