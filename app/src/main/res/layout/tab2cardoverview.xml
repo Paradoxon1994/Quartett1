@@ -14,19 +14,16 @@
             android:id="@+id/leftArrowImageButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/nameTextView"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="16dp"
+            android:layout_alignStart="@+id/cardPictureInGameImageView"
+            android:layout_alignTop="@+id/rightArrowImageButton"
             android:background="@drawable/arrowl" />
 
         <TextView
             android:id="@+id/firstNumberTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/leftArrowImageButton"
-            android:layout_marginStart="18dp"
-            android:layout_toEndOf="@+id/leftArrowImageButton"
+            android:layout_above="@+id/nameTextView"
+            android:layout_toStartOf="@+id/textView2"
             android:text="4"
             android:textSize="30sp" />
 
@@ -34,8 +31,9 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/firstNumberTextView"
-            android:layout_alignBottom="@+id/leftArrowImageButton"
+            android:layout_alignBaseline="@+id/secondNumberTextView"
+            android:layout_alignBottom="@+id/secondNumberTextView"
+            android:layout_centerHorizontal="true"
             android:text="/"
             android:textSize="30sp" />
 
@@ -63,10 +61,9 @@
             android:id="@+id/rightArrowImageButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="18dp"
-            android:layout_toEndOf="@+id/secondNumberTextView"
+            android:layout_alignEnd="@+id/cardPictureInGameImageView"
             android:layout_alignParentTop="true"
+            android:layout_marginTop="18dp"
             android:background="@drawable/arrowr" />
 
         <ImageView
@@ -75,8 +72,7 @@
             android:layout_height="120dp"
             android:layout_below="@+id/nameTextView"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
-            app:srcCompat="@drawable/ic_launcher_background" />
+            android:layout_marginTop="16dp" />
 
         <TextView
             android:id="@+id/attr1OverviewTextView"
@@ -85,7 +81,7 @@
             android:layout_alignStart="@+id/cardPictureInGameImageView"
             android:layout_below="@+id/cardPictureInGameImageView"
             android:layout_marginTop="16dp"
-            android:text="Baujahr" />
+            android:text="" />
 
         <TextView
             android:id="@+id/attr2OverviewTextView"
@@ -93,7 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/attr1OverviewTextView"
             android:layout_below="@+id/attr1OverviewTextView"
-            android:text="Zylinder" />
+            android:text="" />
 
         <TextView
             android:id="@+id/attr3OverviewTextView"
@@ -101,7 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/attr2OverviewTextView"
             android:layout_below="@+id/attr2OverviewTextView"
-            android:text="Gewicht" />
+            android:text="" />
 
         <TextView
             android:id="@+id/attr4OverviewTextView"
@@ -109,7 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/attr3OverviewTextView"
             android:layout_below="@+id/attr3OverviewTextView"
-            android:text="Geschwindigkeit" />
+            android:text="" />
 
         <TextView
             android:id="@+id/attr5OverviewTextView"
@@ -117,7 +113,15 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/attr4OverviewTextView"
             android:layout_below="@+id/attr4OverviewTextView"
-            android:text="Leistung" />
+            android:text="" />
+
+        <TextView
+            android:id="@+id/attr6OverviewTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/attr5OverviewTextView"
+            android:layout_below="@+id/attr5OverviewTextView"
+            android:text="" />
 
         <TextView
             android:id="@+id/attr1ValueOverviewTextView"
@@ -126,7 +130,7 @@
             android:layout_alignEnd="@+id/cardPictureInGameImageView"
             android:layout_marginTop="16dp"
             android:layout_below="@+id/cardPictureInGameImageView"
-            android:text="0" />
+            android:text="" />
 
         <TextView
             android:id="@+id/attr2ValueOverviewTextView"
@@ -134,7 +138,7 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/attr1ValueOverviewTextView"
             android:layout_below="@+id/attr1ValueOverviewTextView"
-            android:text="0" />
+            android:text="" />
 
         <TextView
             android:id="@+id/attr3ValueOverviewTextView"
@@ -142,7 +146,7 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/attr2ValueOverviewTextView"
             android:layout_below="@+id/attr2ValueOverviewTextView"
-            android:text="0" />
+            android:text="" />
 
         <TextView
             android:id="@+id/attr4ValueOverviewTextView"
@@ -150,7 +154,7 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/attr3ValueOverviewTextView"
             android:layout_below="@+id/attr3ValueOverviewTextView"
-            android:text="0" />
+            android:text="" />
 
         <TextView
             android:id="@+id/attr5ValueOverviewTextView"
@@ -158,7 +162,15 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/attr4ValueOverviewTextView"
             android:layout_below="@+id/attr4ValueOverviewTextView"
-            android:text="0" />
+            android:text="" />
+
+        <TextView
+            android:id="@+id/attr6ValueOverviewTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/attr5ValueOverviewTextView"
+            android:layout_below="@+id/attr5ValueOverviewTextView"
+            android:text="" />
 
 
 
