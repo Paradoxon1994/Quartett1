@@ -1,8 +1,10 @@
 package com.app.quartett.quartett2.view;
 
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -20,6 +22,7 @@ import com.app.quartett.quartett2.model.Deck;
 import com.app.quartett.quartett2.model.Property;
 import com.app.quartett.quartett2.model.Value;
 
+import junit.framework.Assert;
 import junit.framework.Test;
 
 import org.w3c.dom.Text;
@@ -59,6 +62,7 @@ public class Tab2CardOverview extends Fragment{
 
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -75,7 +79,7 @@ public class Tab2CardOverview extends Fragment{
         //setting up right number of carddeck
         firstNumberTextView.setText("1");
         secondNumberTextView.setText(String.valueOf(deck.getCards().size()));
-        cardPictureImageView.setBackgroundResource(R.drawable.bike1);
+        cardPictureImageView.setImageResource(R.drawable.bike1);
 
 
         nameTextField.setText(initialCard.getName());
@@ -114,7 +118,6 @@ public class Tab2CardOverview extends Fragment{
     private void loadCard(Card card) {
 
         nameTextField.setText(card.getName());
-
         //setting up right properties with values
         int i = 0;
         NumberFormat nf = new DecimalFormat("##.##");
@@ -128,8 +131,6 @@ public class Tab2CardOverview extends Fragment{
             }
             i++;
         }
-
-        //TODO: change Image
     }
 
 
@@ -142,6 +143,11 @@ public class Tab2CardOverview extends Fragment{
         } else {
             nextPosition = currentPosition + 1;
         }
+
+        //selecting the correct picture
+        String actualPicture = "bike";
+        actualPicture += nextPosition;
+        cardPictureImageView.setImageResource(getDrawable(getContext(), actualPicture));
 
         firstNumberTextView.setText(String.valueOf(nextPosition));
         Card card = deck.getCards().get(nextPosition-1);
@@ -159,9 +165,24 @@ public class Tab2CardOverview extends Fragment{
             nextPosition = currentPosition - 1;
         }
 
+        //selection the correct picture
+        String actualPicture = "bike";
+        actualPicture += nextPosition;
+        cardPictureImageView.setImageResource(getDrawable(getContext(), actualPicture));
+
         firstNumberTextView.setText(String.valueOf(nextPosition));
         Card card = deck.getCards().get(nextPosition-1);
         loadCard(card);
+    }
+
+
+    public static int getDrawable(Context context, String name)
+    {
+        Assert.assertNotNull(context);
+        Assert.assertNotNull(name);
+
+        return context.getResources().getIdentifier(name,
+                "drawable", context.getPackageName());
     }
 
 
