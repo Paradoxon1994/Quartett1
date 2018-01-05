@@ -59,7 +59,7 @@ public class GameController {
             kiCard=ki.getCards().get(0);
 
             if(playersTurn){
-                //TODO: show card to player and get his selection
+                //TODO: show card to player and get his selection + assign playerValue and kiValue
                 //property =deck.getProperties().get(playerValue.getPropertyId());
             }else{
                 //TODO: ki selection (possibly with difficulty settings kept in mind)
@@ -70,6 +70,7 @@ public class GameController {
                 int n = rand.nextInt(kiCard.getValues().size()-1);
 
                 kiValue=kiCard.getValues().get(n);
+                playerValue=playerCard.getValues().get(n);
 
                 property =deck.getProperties().get(kiValue.getPropertyId());
             }
