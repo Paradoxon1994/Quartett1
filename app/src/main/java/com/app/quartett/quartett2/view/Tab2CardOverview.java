@@ -51,7 +51,6 @@ public class Tab2CardOverview extends Fragment{
     public TextView[] attributeValueOverviews;
     public TextView[] attributeOverviews;
 
-    public Deck deck;
 
 
     public String actualPicture;
@@ -70,14 +69,13 @@ public class Tab2CardOverview extends Fragment{
         initialize(rootView);
 
         //setting up right dialogs for the first time when app is started
-        deck = MainActivity.getLoadedDeck();
-        Card initialCard = deck.getCards().get(0);
+        Card initialCard = MainActivity.getLoadedDeck().getCards().get(0);
 
         Categories.setSelectedDeck("bikes");
 
         //setting up right number of carddeck
         firstNumberTextView.setText("1");
-        secondNumberTextView.setText(String.valueOf(deck.getCards().size()));
+        secondNumberTextView.setText(String.valueOf(MainActivity.getLoadedDeck().getCards().size()));
         cardPictureImageView.setImageResource(R.drawable.bikes1);
 
         //nameTextField.setText(initialCard.getName());
@@ -154,7 +152,7 @@ public class Tab2CardOverview extends Fragment{
         int currentPosition = Integer.parseInt(firstNumberTextView.getText().toString());
         int nextPosition;
         if(currentPosition == 1) {
-            nextPosition = deck.getCards().size();
+            nextPosition = MainActivity.getLoadedDeck().getCards().size();
         } else {
             nextPosition = currentPosition - 1;
         }

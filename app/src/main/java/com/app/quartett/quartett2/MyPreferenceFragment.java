@@ -29,12 +29,15 @@ public class MyPreferenceFragment extends PreferenceFragment
     {
         super.onCreate(savedInstanceState);
 
+        //init stuff
+        initialization();
+
         // Load the preferences from an XML resource
         addPreferencesFromResource(R.xml.fragment_preference);
 
-        /*if(selectionTime != null){
-            test.setText(String.valueOf(selectionTime.getValue()));
-        }*/
+
+
+
 
 
 
@@ -43,5 +46,21 @@ public class MyPreferenceFragment extends PreferenceFragment
 
     public String getDifficulty() {
         return difficultyPreference.getValue();
+    }
+
+    public int getNumberOfRounds() { return numberOfRounds.getValue(); }
+
+    public int getSelectionTime() { return selectionTime.getValue(); }
+
+    //TODO: see if notification is on/off
+    public CharSequence getNotification() { return notification.getTitle(); }
+
+    private void initialization(){
+        numberOfRounds = (NumberPickerPreference) getPreferenceManager().findPreference("numberOfRounds");
+        selectionTime = (NumberPickerPreference) getPreferenceManager().findPreference("selectionTime");
+        difficultyPreference = (ListPreference) getPreferenceManager().findPreference("difficultyPreference");
+        notification = (CheckBoxPreference) getPreferenceManager().findPreference("notification");
+
+        //difficultyPreference.setValue("Medium");
     }
 }

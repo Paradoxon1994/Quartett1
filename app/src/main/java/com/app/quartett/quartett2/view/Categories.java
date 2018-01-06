@@ -14,8 +14,6 @@ public class Categories extends AppCompatActivity {
     //imageviews for themes
     public ImageView theme1ImageView, theme2ImageView;
 
-    public TextView textView3;
-
     //selected Deck
     private static String selectedDeck;
 
@@ -70,6 +68,5 @@ public class Categories extends AppCompatActivity {
     public void initialize(View v){
         theme1ImageView = (ImageView) v.getRootView().findViewById(R.id.theme1ImageView);
         theme2ImageView = (ImageView) v.getRootView().findViewById(R.id.theme2ImageView);
-        textView3 = (TextView) v.getRootView().findViewById(R.id.textView3);
     }
 }
