@@ -13,13 +13,13 @@ public class MyPreferenceFragment extends PreferenceFragment
 {
 
     //numberpickers of the rounds and time
-    public NumberPickerPreference numberOfRounds, selectionTime;
+    private static NumberPickerPreference numberOfRounds, selectionTime;
 
     //difficultyPreference
-    public ListPreference difficultyPreference;
+    private static ListPreference difficultyPreference;
 
     //checkbox for notification
-    public CheckBoxPreference notification;
+    private static CheckBoxPreference notification;
 
 
 
@@ -36,22 +36,36 @@ public class MyPreferenceFragment extends PreferenceFragment
         addPreferencesFromResource(R.xml.fragment_preference);
     }
 
-    public String getDifficulty() {
-        return difficultyPreference.getValue();
+    public static int getDifficulty() {
+        /*if(difficultyPreference.getValue().equals("EASY")) {
+            return 1;
+        } else if (difficultyPreference.getValue().equals("MEDIUM")){
+            return 2;
+        } else {
+            return 3;
+        }*/
+        return 1;
     }
 
-    public int getNumberOfRounds() { return numberOfRounds.getValue(); }
+    public static int getNumberOfRounds() {
+        //return numberOfRounds.getValue();
+        return 30;
+        }
 
-    public int getSelectionTime() { return selectionTime.getValue(); }
+    public static int getSelectionTime() {
+        //return selectionTime.getValue();
+        return 10;
+    }
 
     //TODO: see if notification is on/off
     public CharSequence getNotification() { return notification.getTitle(); }
 
     private void initialization(){
-        numberOfRounds = (NumberPickerPreference) getPreferenceManager().findPreference("numberOfRounds");
-        selectionTime = (NumberPickerPreference) getPreferenceManager().findPreference("selectionTime");
-        difficultyPreference = (ListPreference) getPreferenceManager().findPreference("difficultyPreference");
-        notification = (CheckBoxPreference) getPreferenceManager().findPreference("notification");
+        numberOfRounds = (NumberPickerPreference) findPreference("numberOfRounds");
+        selectionTime = (NumberPickerPreference) findPreference("selectionTime");
+        difficultyPreference = (ListPreference) findPreference("difficultyPreference");
+        notification = (CheckBoxPreference) findPreference("notification");
+
 
         //difficultyPreference.setValue("Medium");
     }

@@ -31,7 +31,7 @@ public class EndOfRound extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.endofgame);
+        setContentView(R.layout.endofround);
 
         //initialization
         initialization(findViewById(android.R.id.content));

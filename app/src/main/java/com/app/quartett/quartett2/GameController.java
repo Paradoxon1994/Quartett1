@@ -1,11 +1,14 @@
 package com.app.quartett.quartett2;
 
+import android.content.Intent;
+
 import com.app.quartett.quartett2.model.Card;
 import com.app.quartett.quartett2.model.Deck;
 import com.app.quartett.quartett2.model.Game;
 import com.app.quartett.quartett2.model.Player;
 import com.app.quartett.quartett2.model.Property;
 import com.app.quartett.quartett2.model.Value;
+import com.app.quartett.quartett2.view.InGame;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -24,6 +27,7 @@ public class GameController {
     public boolean startGame(){
 
         ki=new Player("ki");
+
 
 
         ArrayList<Card> playerCards = new ArrayList<>();

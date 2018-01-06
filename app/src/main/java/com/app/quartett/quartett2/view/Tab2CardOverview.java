@@ -62,6 +62,7 @@ public class Tab2CardOverview extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        //TODO: change
         actualPicture = "bikes";
         View rootView = inflater.inflate(R.layout.tab2cardoverview, container, false);
 
@@ -141,7 +142,6 @@ public class Tab2CardOverview extends Fragment{
         actualPicture = Categories.getSelectedDeck();
         actualPicture += nextPosition;
         cardPictureImageView.setImageResource(getDrawable(getContext(), actualPicture));
-
         firstNumberTextView.setText(String.valueOf(nextPosition));
         Card nextCard = MainActivity.getLoadedDeck().getCards().get(nextPosition-1);
         loadCard(nextCard);
@@ -161,7 +161,6 @@ public class Tab2CardOverview extends Fragment{
         actualPicture = Categories.getSelectedDeck();
         actualPicture += nextPosition;
         cardPictureImageView.setImageResource(getDrawable(getContext(), actualPicture));
-
         firstNumberTextView.setText(String.valueOf(nextPosition));
         Card previousCard = MainActivity.getLoadedDeck().getCards().get(nextPosition-1);
         loadCard(previousCard);

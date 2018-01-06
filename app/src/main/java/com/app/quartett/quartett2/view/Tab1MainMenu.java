@@ -53,6 +53,14 @@ public class Tab1MainMenu extends Fragment{
             }
         });
 
+        newGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), InGame.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     public static void switchTheme(){
@@ -63,6 +71,8 @@ public class Tab1MainMenu extends Fragment{
         }
     }
 
+
+
     private void initialize(View v) {
 
         //theme image
@@ -70,6 +80,7 @@ public class Tab1MainMenu extends Fragment{
 
         //buttons
         categories = (Button) v.getRootView().findViewById(R.id.categories);
+        newGame = (Button) v.getRootView().findViewById(R.id.newGame);
 
     }
 

@@ -23,6 +23,8 @@
             android:name=".MyPreferenceActivity"
             android:label="Preferences"></activity>
         <activity android:name=".view.Categories"></activity>
+        <activity android:name=".view.InGame"></activity>
+        <activity android:name=".view.EndOfRound"></activity>
     </application>
 
 </manifest>

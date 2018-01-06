@@ -259,6 +259,8 @@ public class MainActivity extends AppCompatActivity {
         return loadedDeck;
     }
 
+    public static void setLoadedDeck(Deck d) {loadedDeck = d;}
+
 
 
     /*public static void setLoadedDeck(String deck){
