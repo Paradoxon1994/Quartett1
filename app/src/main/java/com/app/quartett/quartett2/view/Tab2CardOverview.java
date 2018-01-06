@@ -23,6 +23,7 @@ import junit.framework.Assert;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 
 public class Tab2CardOverview extends Fragment{
 
@@ -48,19 +49,16 @@ public class Tab2CardOverview extends Fragment{
 
 
     //arrays for easier value saving
-    public TextView[] attributeValueOverviews;
-    public TextView[] attributeOverviews;
-
-
+    public ArrayList<TextView> attributeValueOverviews;
+    public ArrayList<TextView> attributeOverviews;
 
     public String actualPicture;
-
-
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
 
         //TODO: change
         actualPicture = "bikes";
@@ -90,19 +88,21 @@ public class Tab2CardOverview extends Fragment{
     @Override
     public void onStart(){
 
+
+
         rightArrowImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 nextCard();
             }
         });
-
         leftArrowImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 previousCard();
             }
         });
+
         super.onStart();
     }
 
@@ -116,11 +116,11 @@ public class Tab2CardOverview extends Fragment{
         int i = 0;
         NumberFormat nf = new DecimalFormat("##.##");
         for (Property p : MainActivity.getLoadedDeck().getProperties()) {
-            attributeOverviews[i].setText(p.getText());
+            attributeOverviews.get(i).setText(p.getText());
             for (Value v:card.getValues()) {
                 if(v.getPropertyId() == p.getId()){
-                    attributeValueOverviews[i].setText(String.valueOf(nf.format(v.getValue())));
-                    attributeValueOverviews[i].append(" " + p.getUnit());
+                    attributeValueOverviews.get(i).setText(String.valueOf(nf.format(v.getValue())));
+                    attributeValueOverviews.get(i).append(" " + p.getUnit());
                 }
             }
             i++;
@@ -188,13 +188,13 @@ public class Tab2CardOverview extends Fragment{
         attr6OverviewTextView = (TextView) v.getRootView().findViewById(R.id.attr6OverviewTextView);
 
         //save Textviews in array
-        attributeOverviews = new TextView[6];
-        attributeOverviews[0] = attr1OverviewTextView;
-        attributeOverviews[1] = attr2OverviewTextView;
-        attributeOverviews[2] = attr3OverviewTextView;
-        attributeOverviews[3] = attr4OverviewTextView;
-        attributeOverviews[4] = attr5OverviewTextView;
-        attributeOverviews[5] = attr6OverviewTextView;
+        attributeOverviews = new ArrayList<>();
+        attributeOverviews.add(attr1OverviewTextView);
+        attributeOverviews.add(attr2OverviewTextView);
+        attributeOverviews.add(attr3OverviewTextView);
+        attributeOverviews.add(attr4OverviewTextView);
+        attributeOverviews.add(attr5OverviewTextView);
+        attributeOverviews.add(attr6OverviewTextView);
 
         //attribute values
         attr1ValueOverviewTextView = (TextView) v.getRootView().findViewById(R.id.attr1ValueOverviewTextView);
@@ -206,13 +206,13 @@ public class Tab2CardOverview extends Fragment{
 
 
         //save textview values in array
-        attributeValueOverviews = new TextView[6];
-        attributeValueOverviews[0] = attr1ValueOverviewTextView;
-        attributeValueOverviews[1] = attr2ValueOverviewTextView;
-        attributeValueOverviews[2] = attr3ValueOverviewTextView;
-        attributeValueOverviews[3] = attr4ValueOverviewTextView;
-        attributeValueOverviews[4] = attr5ValueOverviewTextView;
-        attributeValueOverviews[5] = attr6ValueOverviewTextView;
+        attributeValueOverviews = new ArrayList<>();
+        attributeValueOverviews.add(attr1ValueOverviewTextView);
+        attributeValueOverviews.add(attr2ValueOverviewTextView);
+        attributeValueOverviews.add(attr3ValueOverviewTextView);
+        attributeValueOverviews.add(attr4ValueOverviewTextView);
+        attributeValueOverviews.add(attr5ValueOverviewTextView);
+        attributeValueOverviews.add(attr6ValueOverviewTextView);
 
         //cardimage
         cardPictureImageView = (ImageView) v.getRootView().findViewById(R.id.cardPictureInGameImageView);

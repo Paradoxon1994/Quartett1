@@ -7,17 +7,19 @@
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="53dp"
+        tools:layout_editor_absoluteY="0dp">
 
 
         <TextView
             android:id="@+id/roundTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
             android:text="@string/runde"
-            android:textSize="25sp"/>
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/numberOfRoundTextView"
@@ -26,7 +28,7 @@
             android:layout_alignTop="@+id/roundTextView"
             android:layout_toEndOf="@+id/roundTextView"
             android:text="@string/_0"
-            android:textSize="25sp"/>
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/nameTextView"
@@ -51,66 +53,66 @@
             android:id="@+id/attr1TextView"
             android:layout_width="150dp"
             android:layout_height="35dp"
-            android:textSize="12sp"
             android:layout_alignStart="@+id/cardPictureInGameImageView"
             android:layout_below="@+id/cardPictureInGameImageView"
             android:layout_marginTop="8dp"
-            android:text="@string/EMPTY" />
+            android:text="@string/EMPTY"
+            android:textSize="12sp" />
 
         <Button
             android:id="@+id/attr2TextView"
             android:layout_width="150dp"
             android:layout_height="35dp"
-            android:textSize="12sp"
             android:layout_alignStart="@+id/attr1TextView"
             android:layout_below="@+id/attr1TextView"
-            android:text="EMPTY" />
+            android:text="EMPTY"
+            android:textSize="12sp" />
 
         <Button
             android:id="@+id/attr3TextView"
             android:layout_width="150dp"
             android:layout_height="35dp"
-            android:textSize="12sp"
             android:layout_alignStart="@+id/attr2TextView"
             android:layout_below="@+id/attr2TextView"
-            android:text="EMPTY" />
+            android:text="EMPTY"
+            android:textSize="12sp" />
 
         <Button
             android:id="@+id/attr4TextView"
             android:layout_width="150dp"
             android:layout_height="35dp"
-            android:textSize="12sp"
             android:layout_alignStart="@+id/attr3TextView"
             android:layout_below="@+id/attr3TextView"
-            android:text="EMPTY" />
+            android:text="EMPTY"
+            android:textSize="12sp" />
 
         <Button
             android:id="@+id/attr5TextView"
             android:layout_width="150dp"
             android:layout_height="35dp"
-            android:textSize="12sp"
             android:layout_alignStart="@+id/attr4TextView"
             android:layout_below="@+id/attr4TextView"
-            android:text="EMPTY" />
+            android:text="EMPTY"
+            android:textSize="12sp" />
 
         <Button
             android:id="@+id/attr6TextView"
             android:layout_width="150dp"
             android:layout_height="35dp"
-            android:textSize="12sp"
             android:layout_alignStart="@+id/attr5TextView"
             android:layout_below="@+id/attr5TextView"
-            android:text="@string/empty" />
+            android:text="@string/empty"
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/attr1ValueTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/attr1TextView"
+            android:layout_alignBottom="@+id/attr1TextView"
             android:layout_alignEnd="@+id/cardPictureInGameImageView"
-            android:layout_below="@+id/cardPictureInGameImageView"
-            android:layout_marginTop="8dp"
-            android:textSize="12sp"
-            android:text="@string/_0" />
+            android:text="@string/_0"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/attr2ValueTextView"
@@ -118,9 +120,9 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/attr1ValueTextView"
             android:layout_below="@+id/attr1ValueTextView"
-            android:layout_marginTop="8dp"
-            android:textSize="12sp"
-            android:text="0" />
+            android:layout_alignBaseline="@+id/attr2TextView"
+            android:text="0"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/attr3ValueTextView"
@@ -128,9 +130,9 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/attr2ValueTextView"
             android:layout_below="@+id/attr2ValueTextView"
-            android:layout_marginTop="8dp"
-            android:textSize="12sp"
-            android:text="0" />
+            android:layout_alignBaseline="@+id/attr3TextView"
+            android:text="0"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/attr4ValueTextView"
@@ -138,9 +140,9 @@
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/attr3ValueTextView"
             android:layout_below="@+id/attr3ValueTextView"
-            android:layout_marginTop="8dp"
-            android:textSize="12sp"
-            android:text="0" />
+            android:layout_alignBaseline="@+id/attr4TextView"
+            android:text="0"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/attr5ValueTextView"
@@ -148,9 +150,9 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/attr4ValueTextView"
             android:layout_below="@+id/attr4ValueTextView"
-            android:layout_marginTop="8dp"
-            android:textSize="12sp"
-            android:text="0" />
+            android:layout_alignBaseline="@+id/attr5TextView"
+            android:text="0"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/attr6ValueTextView"
@@ -158,9 +160,9 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/attr5ValueTextView"
             android:layout_below="@+id/attr5ValueTextView"
-            android:layout_marginTop="8dp"
-            android:textSize="12sp"
-            android:text="0" />
+            android:layout_alignBaseline="@+id/attr6TextView"
+            android:text="0"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/continueButton"

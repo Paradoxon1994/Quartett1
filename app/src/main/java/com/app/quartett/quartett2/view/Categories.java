@@ -52,7 +52,7 @@ public class Categories extends AppCompatActivity {
                 selectedDeck = "bikes";
                 MainActivity.setLoadedDeck(readDeck(selectedDeck));
                 Tab1MainMenu.switchTheme();
-                //MainActivity.setDeckName(selectedDeck);
+                Tab2CardOverview test = new Tab2CardOverview();
                 finish();
             }
         });
@@ -63,7 +63,6 @@ public class Categories extends AppCompatActivity {
                 selectedDeck = "tuning";
                 MainActivity.setLoadedDeck(readDeck(selectedDeck));
                 Tab1MainMenu.switchTheme();
-                //MainActivity.setDeckName(selectedDeck);
                 finish();
             }
         });
