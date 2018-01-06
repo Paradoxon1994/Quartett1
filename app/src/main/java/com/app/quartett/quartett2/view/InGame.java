@@ -8,19 +8,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.app.quartett.quartett2.GameController;
 import com.app.quartett.quartett2.MainActivity;
 import com.app.quartett.quartett2.MyPreferenceFragment;
 import com.app.quartett.quartett2.R;
-import com.app.quartett.quartett2.Settings;
 import com.app.quartett.quartett2.model.Card;
 import com.app.quartett.quartett2.model.Deck;
 import com.app.quartett.quartett2.model.Game;
 import com.app.quartett.quartett2.model.Player;
 import com.app.quartett.quartett2.model.Property;
 import com.app.quartett.quartett2.model.Value;
-
-import org.w3c.dom.Text;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -128,6 +124,8 @@ public class InGame extends AppCompatActivity{
                 //property =deck.getProperties().get(playerValue.getPropertyId());
                 loadCard(playerCard);
 
+                waitForUserSelection();
+
             }else{
                 //TODO: ki selection (possibly with difficulty settings kept in mind)
 
@@ -159,8 +157,12 @@ public class InGame extends AppCompatActivity{
                 }
             }
 
+
+
             //distributing cards win lose draw
-            if(playerWonRound){
+            if(playerValue.getValue()==kiValue.getValue()){
+                player.addCard(player.removeCard());
+                ki.addCard(ki.removeCard());
                 player.addCard(ki.removeCard());
                 Intent intent = new Intent(this, EndOfRound.class);
                 intent.putExtra("playerCardName", playerCard.getName());
@@ -170,12 +172,26 @@ public class InGame extends AppCompatActivity{
                 intent.putExtra("property", property.getText());
                 intent.putExtra("playerCardValue", playerValue.getValue());
                 intent.putExtra("kiCardValue", kiValue.getValue());
-                intent.putExtra("won", playerWonRound);
+                intent.putExtra("won", "draw");
+                startActivity(intent);
+
+            }
+            else if(playerWonRound){
+                player.addCard(ki.removeCard());
+                Intent intent = new Intent(this, EndOfRound.class);
+                intent.putExtra("playerCardName", playerCard.getName());
+                intent.putExtra("kiCardName", kiCard.getName());
+                intent.putExtra("playerCardImagePath", playerCard.getImages().get(0).getFilename());
+                intent.putExtra("kiCardImagePath", kiCard.getImages().get(0).getFilename());
+                intent.putExtra("property", property.getText());
+                intent.putExtra("playerCardValue", playerValue.getValue());
+                intent.putExtra("kiCardValue", kiValue.getValue());
+                intent.putExtra("won", "win");
                 startActivity(intent);
 
             }else if(!playerWonRound){
                 ki.addCard(player.removeCard());
-                player.addCard(ki.removeCard());
+
                 Intent intent = new Intent(this, EndOfRound.class);
                 intent.putExtra("playerCardName", playerCard.getName());
                 intent.putExtra("kiCardName", kiCard.getName());
@@ -184,11 +200,8 @@ public class InGame extends AppCompatActivity{
                 intent.putExtra("property", property.getText());
                 intent.putExtra("playerCardValue", playerValue.getValue());
                 intent.putExtra("kiCardValue", kiValue.getValue());
-                intent.putExtra("won", playerWonRound);
+                intent.putExtra("won", "loss");
                 startActivity(intent);
-            }else{
-                player.addCard(player.removeCard());
-                ki.addCard(ki.removeCard());
             }
 
             if(playersTurn){
@@ -197,7 +210,7 @@ public class InGame extends AppCompatActivity{
                 playersTurn = true;
             }
 
-            //TODO: showing the player if he won or lost
+
 
             //TODO: get next card and repeat
         }
@@ -206,6 +219,10 @@ public class InGame extends AppCompatActivity{
 
         //returning if player won the game or not
         return true;
+    }
+
+    private void waitForUserSelection() {
+
     }
 
     private int playerSelectedCard() {
