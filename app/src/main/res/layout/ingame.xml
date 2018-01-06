@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginLeft="16dp"
-            android:text="Runde:  "
+            android:text="@string/runde"
             android:textSize="25sp"/>
 
         <TextView
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/roundTextView"
             android:layout_toEndOf="@+id/roundTextView"
-            android:text="0"
+            android:text="@string/_0"
             android:textSize="25sp"/>
 
         <TextView
@@ -35,7 +35,7 @@
             android:layout_below="@+id/roundTextView"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
-            android:text="EMTPY"
+            android:text="@string/emtpy"
             android:textSize="18sp" />
 
         <ImageView
@@ -57,7 +57,7 @@
             android:onClick="onClick"
             android:clickable="true"
             android:textSize="20sp"
-            android:text="Baujahr" />
+            android:text="@string/EMPTY" />
 
         <TextView
             android:id="@+id/attr2TextView"
@@ -68,7 +68,7 @@
             android:onClick="onClick"
             android:clickable="true"
             android:textSize="20sp"
-            android:text="Zylinder" />
+            android:text="EMPTY" />
 
         <TextView
             android:id="@+id/attr3TextView"
@@ -79,7 +79,7 @@
             android:onClick="onClick"
             android:clickable="true"
             android:textSize="20sp"
-            android:text="Gewicht" />
+            android:text="EMPTY" />
 
         <TextView
             android:id="@+id/attr4TextView"
@@ -90,7 +90,7 @@
             android:onClick="onClick"
             android:clickable="true"
             android:textSize="20sp"
-            android:text="Geschwindigkeit" />
+            android:text="EMPTY" />
 
         <TextView
             android:id="@+id/attr5TextView"
@@ -101,7 +101,7 @@
             android:onClick="onClick"
             android:clickable="true"
             android:textSize="20sp"
-            android:text="Leistung" />
+            android:text="EMPTY" />
 
         <TextView
             android:id="@+id/attr6TextView"
@@ -112,7 +112,7 @@
             android:onClick="onClick"
             android:clickable="true"
             android:textSize="20sp"
-            android:text="ShitInMaPants" />
+            android:text="@string/empty" />
 
         <TextView
             android:id="@+id/attr1ValueTextView"
@@ -122,7 +122,7 @@
             android:layout_marginTop="8dp"
             android:layout_below="@+id/cardPictureInGameImageView"
             android:textSize="20sp"
-            android:text="0" />
+            android:text="@string/_0" />
 
         <TextView
             android:id="@+id/attr2ValueTextView"

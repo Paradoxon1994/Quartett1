@@ -8,4 +8,10 @@
 
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="_0">0</string>
+    <string name="runde">Runde:</string>
+    <string name="emtpy">EMTPY</string>
+    <string name="baujahr">Baujahr</string>
+    <string name="empty">EMPTY</string>
+    <string name="EMPTY">EMPTY</string>
 </resources>
