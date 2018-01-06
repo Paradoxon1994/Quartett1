@@ -16,7 +16,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginLeft="16dp"
-            android:text="Runde:  " />
+            android:text="Runde:  "
+            android:textSize="25sp"/>
 
         <TextView
             android:id="@+id/numberOfRoundTextView"
@@ -24,7 +25,8 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/roundTextView"
             android:layout_toEndOf="@+id/roundTextView"
-            android:text="0" />
+            android:text="0"
+            android:textSize="25sp"/>
 
         <TextView
             android:id="@+id/nameTextView"
@@ -33,25 +35,25 @@
             android:layout_below="@+id/roundTextView"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
-            android:text="Mercedes G-Klasse 4x4 sqaured"
+            android:text="EMTPY"
             android:textSize="18sp" />
 
         <ImageView
-            android:id="@+id/carPictureInGameImageView"
-            android:layout_width="200dp"
-            android:layout_height="120dp"
+            android:id="@+id/cardPictureInGameImageView"
+            android:layout_width="230dp"
+            android:layout_height="145dp"
             android:layout_below="@+id/nameTextView"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
-            app:srcCompat="@drawable/ic_launcher_background" />
+            app:srcCompat="@drawable/bikes1" />
 
         <TextView
             android:id="@+id/attr1TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/carPictureInGameImageView"
-            android:layout_below="@+id/carPictureInGameImageView"
-            android:layout_marginTop="16dp"
+            android:layout_alignStart="@+id/cardPictureInGameImageView"
+            android:layout_below="@+id/cardPictureInGameImageView"
+            android:layout_marginTop="8dp"
             android:onClick="onClick"
             android:clickable="true"
             android:textSize="20sp"
@@ -102,12 +104,23 @@
             android:text="Leistung" />
 
         <TextView
+            android:id="@+id/attr6TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/attr5TextView"
+            android:layout_below="@+id/attr5TextView"
+            android:onClick="onClick"
+            android:clickable="true"
+            android:textSize="20sp"
+            android:text="ShitInMaPants" />
+
+        <TextView
             android:id="@+id/attr1ValueTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/carPictureInGameImageView"
-            android:layout_marginTop="16dp"
-            android:layout_below="@+id/carPictureInGameImageView"
+            android:layout_alignEnd="@+id/cardPictureInGameImageView"
+            android:layout_marginTop="8dp"
+            android:layout_below="@+id/cardPictureInGameImageView"
             android:textSize="20sp"
             android:text="0" />
 
@@ -146,6 +159,25 @@
             android:layout_below="@+id/attr4ValueTextView"
             android:textSize="20sp"
             android:text="0" />
+
+        <TextView
+            android:id="@+id/attr6ValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/attr5ValueTextView"
+            android:layout_below="@+id/attr5ValueTextView"
+            android:textSize="20sp"
+            android:text="0" />
+
+        <Button
+            android:id="@+id/continueButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Button" />
 
 
     </RelativeLayout>
