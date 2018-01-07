@@ -221,8 +221,8 @@ public class MainActivity extends AppCompatActivity {
                     Tab1MainMenu tab1 = new Tab1MainMenu();
                     return tab1;
                 case 1:
-                     Tab2CardOverview tab2 = new Tab2CardOverview();
-                     return tab2;
+                    Tab2CardOverview tab2 = new Tab2CardOverview();
+                    return tab2;
                 case 2:
                     Tab3Manual tab3 = new Tab3Manual();
                     return tab3;

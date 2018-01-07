@@ -75,6 +75,7 @@ public class InGame extends AppCompatActivity{
     public void onStart(){
         super.onStart();
         //get stuff for starting game
+
         game = new Game(MyPreferenceFragment.getDifficulty(), MyPreferenceFragment.getNumberOfRounds(), MyPreferenceFragment.getSelectionTime());
         player = new Player("Name");
         deck = MainActivity.getLoadedDeck();

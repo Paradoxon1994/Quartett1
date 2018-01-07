@@ -32,26 +32,23 @@ public class EndOfRound extends AppCompatActivity {
     //button for continuing
     public Button continueButton;
 
-    //strings for display purpose
-    private String playerCardName, kiCardName, playerCardImagePath, kiCardImagePath, property, playerCardValue, kiCardValue, winner;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.endofround);
 
         //initialization
-        initialization(findViewById(android.R.id.content));
+       initialization(findViewById(android.R.id.content));
 
     }
 
-    protected void onStart(){
-        super.onStart();
+    /*protected void onStart(){
+       super.onStart();
 
         //saving data from
         getDataFromIntent(getIntent());
 
-    }
+    }*/
 
     private void getDataFromIntent(Intent intent){
         cardNameTextView.setText(intent.getStringExtra("playerCardName"));

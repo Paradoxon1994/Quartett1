@@ -13,13 +13,13 @@ public class MyPreferenceFragment extends PreferenceFragment
 {
 
     //numberpickers of the rounds and time
-    private NumberPickerPreference numberOfRounds, selectionTime;
+    private static NumberPickerPreference numberOfRounds, selectionTime;
 
     //difficultyPreference
-    private ListPreference difficultyPreference;
+    private static ListPreference difficultyPreference;
 
     //checkbox for notification
-    private CheckBoxPreference notification;
+    private static CheckBoxPreference notification;
 
 
 
