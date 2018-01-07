@@ -1,5 +1,6 @@
 package com.app.quartett.quartett2.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,8 +11,8 @@ public class Card {
 
     private int id;
     private String name;
-    private List<Value> values;
-    private List<Image> images;
+    private ArrayList<Value> values;
+    private ArrayList<Image> images;
 
     public int getId() {
         return id;
@@ -33,7 +34,7 @@ public class Card {
         return values;
     }
 
-    public void setValues(List<Value> values) {
+    public void setValues(ArrayList<Value> values) {
         this.values = values;
     }
 
@@ -41,11 +42,11 @@ public class Card {
         return images;
     }
 
-    public void setImages(List<Image> images) {
+    public void setImages(ArrayList<Image> images) {
         this.images = images;
     }
 
-    public Card(int id, String name, List<Value> values, List<Image> images) {
+    public Card(int id, String name, ArrayList<Value> values, ArrayList<Image> images) {
 
         this.id = id;
         this.name = name;

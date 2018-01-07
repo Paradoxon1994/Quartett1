@@ -56,6 +56,6 @@ public class Player {
 
 
     public void addCard(Card card){
-        cards.add(card);
+        cards.add(cards.size()-1,card);
     }
 }

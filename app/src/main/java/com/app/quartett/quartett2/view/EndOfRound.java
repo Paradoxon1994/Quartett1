@@ -43,6 +43,13 @@ public class EndOfRound extends AppCompatActivity {
         //initialization
        initialization(findViewById(android.R.id.content));
 
+       continueButton.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               finish();
+           }
+       });
+
     }
 
     protected void onStart(){
@@ -62,12 +69,12 @@ public class EndOfRound extends AppCompatActivity {
         opponentAttrNameTextView.setText(intent.getStringExtra("property"));
 
         //saving values
-        double playerCardValue = 0;
-        intent.getDoubleExtra("playerCardValue", playerCardValue);
-        opponentAttrValueTextView.setText(String.valueOf(playerCardValue));
-        double kiCardValue = 0;
-        intent.getDoubleExtra("kiCardValue", kiCardValue);
-        opponentAttrValueTextView.setText(String.valueOf(kiCardValue));
+        //double playerCardValue = 0;
+        //intent.getDoubleExtra("playerCardValue", playerCardValue);
+        ownAttrValueTextView.setText(intent.getStringExtra("playerCardValue"));
+        //double kiCardValue = 0;
+        //intent.getDoubleExtra("kiCardValue", kiCardValue);
+        opponentAttrValueTextView.setText(intent.getStringExtra("playerCardValue"));
 
         //ownAttrValueTextView.setText(String.valueOf(intent.getStringExtra("playerCardValue")));
         gameStateTextView.setText(intent.getStringExtra("won"));

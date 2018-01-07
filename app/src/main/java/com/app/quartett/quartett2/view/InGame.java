@@ -56,7 +56,16 @@ public class InGame extends AppCompatActivity{
 
     private int playerSelection;
 
-    boolean playerCardSelected = false;
+
+    Card playerCard;
+    Card kiCard;
+    Value playerValue;
+    Value kiValue;
+    Property property;
+    int roundCounter=0;
+    Boolean playerWonRound=false;
+    Boolean playersTurn=false;
+
 
 
 
@@ -69,26 +78,10 @@ public class InGame extends AppCompatActivity{
         //initialization
         initialization(findViewById(android.R.id.content));
 
-
-    }
-
-    public void onStart(){
-        super.onStart();
-        //get stuff for starting game
-
         game = new Game(MyPreferenceFragment.getDifficulty(), MyPreferenceFragment.getNumberOfRounds(), MyPreferenceFragment.getSelectionTime());
         player = new Player("Name");
         deck = MainActivity.getLoadedDeck();
-        startGame();
-
-    }
-
-
-
-    public boolean startGame(){
-
         ki=new Player("ki");
-
         ArrayList<Card> playerCards = new ArrayList<>();
         ArrayList<Card> kiCards = new ArrayList<>();
 
@@ -103,132 +96,249 @@ public class InGame extends AppCompatActivity{
         player.setCards(playerCards);
         ki.setCards(kiCards);
 
-        Card playerCard;
-        Card kiCard;
-        Value playerValue=new Value();
-        Value kiValue = new Value();
-        Property property =new Property();
+
+        continueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                kiValue = kiCard.getValues().get(playerSelection-1);
+                playerValue = playerCard.getValues().get(playerSelection-1);
+
+                property = deck.getProperties().get(playerValue.getPropertyId());
+
+                endOfRoundStuff();
 
 
-        Boolean playerWonRound=false;
-        Boolean playersTurn=true;
 
 
-        while (game.getRoundCounter()<game.getMaxRounds()&& player.getCards().size()!=0 &&ki.getCards().size()!=0){
+            }
+        });
 
-            playerCard=player.getCards().get(0);
-            kiCard=ki.getCards().get(0);
+        attr1TextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                continueButton.setEnabled(true);
+                attr2TextView.setEnabled(false);
+                attr3TextView.setEnabled(false);
+                attr4TextView.setEnabled(false);
+                attr5TextView.setEnabled(false);
+                attr6TextView.setEnabled(false);
+
+                playerSelection=1;
+            }
+        });
 
 
-            if(playersTurn){
+        attr2TextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                continueButton.setEnabled(true);
+                attr1TextView.setEnabled(false);
+                attr3TextView.setEnabled(false);
+                attr4TextView.setEnabled(false);
+                attr5TextView.setEnabled(false);
+                attr6TextView.setEnabled(false);
+                playerSelection=2;
+            }
+        });
+        attr3TextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                continueButton.setEnabled(true);
+                attr1TextView.setEnabled(false);
+                attr2TextView.setEnabled(false);
+                attr4TextView.setEnabled(false);
+                attr5TextView.setEnabled(false);
+                attr6TextView.setEnabled(false);
+                playerSelection=3;
+            }
+        });
+
+        attr4TextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                continueButton.setEnabled(true);
+                attr1TextView.setEnabled(false);
+                attr2TextView.setEnabled(false);
+                attr3TextView.setEnabled(false);
+                attr5TextView.setEnabled(false);
+                attr6TextView.setEnabled(false);
+                playerSelection=4;
+            }
+        });
+        attr5TextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                continueButton.setEnabled(true);
+                attr1TextView.setEnabled(false);
+                attr2TextView.setEnabled(false);
+                attr3TextView.setEnabled(false);
+                attr4TextView.setEnabled(false);
+                attr6TextView.setEnabled(false);
+                playerSelection=5;
+            }
+        });
+
+        attr6TextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                continueButton.setEnabled(true);
+                attr1TextView.setEnabled(false);
+                attr2TextView.setEnabled(false);
+                attr3TextView.setEnabled(false);
+                attr4TextView.setEnabled(false);
+                attr5TextView.setEnabled(false);
+                playerSelection=6;
+            }
+        });
+
+
+
+
+
+
+
+
+    }
+
+    public void onStart(){
+        super.onStart();
+        //get stuff for starting game
+
+
+        startRound();
+
+    }
+
+
+
+    public boolean startRound(){
+        
+        //while (game.getRoundCounter()<game.getMaxRounds()&& player.getCards().size()!=0 &&ki.getCards().size()!=0){
+        
+        if(game.getRoundCounter()<game.getMaxRounds()&& player.getCards().size()!=0 &&ki.getCards().size()!=0) {
+            roundCounter++;
+            numberOfRoundTextView.setText( Integer.toString(roundCounter)+ " Cards left:  " + player.getCards().size());
+            continueButton.setEnabled(false);
+            attr1TextView.setEnabled(true);
+            attr2TextView.setEnabled(true);
+            attr3TextView.setEnabled(true);
+            attr4TextView.setEnabled(true);
+            attr5TextView.setEnabled(true);
+            attr6TextView.setEnabled(true);
+            playerCard = player.getCards().get(0);
+            kiCard = ki.getCards().get(0);
+
+
+            if (playersTurn) {
                 //TODO: show card to player and get his selection + assign playerValue and kiValue
                 //property =deck.getProperties().get(playerValue.getPropertyId());
                 loadCard(playerCard);
 
-                waitForUserSelection();
 
-            }else{
+            } else {
                 //TODO: ki selection (possibly with difficulty settings kept in mind)
 
                 //simple ki selection for testing(maybe easy setting because random):
 
                 Random rand = new Random();
-                int n = rand.nextInt(kiCard.getValues().size()-1);
+                int n = rand.nextInt(kiCard.getValues().size() - 1);
 
-                kiValue=kiCard.getValues().get(n);
-                playerValue=playerCard.getValues().get(n);
+                kiValue = kiCard.getValues().get(n);
 
-                property =deck.getProperties().get(kiValue.getPropertyId());
+                playerValue = playerCard.getValues().get(n);
+
+                property = deck.getProperties().get(kiValue.getPropertyId());
+
+                //here
+
+                endOfRoundStuff();
+
+
             }
 
 
-            //checking who won
-            if(property.getCompare()==1){
-                if(playerValue.getValue()>kiValue.getValue()){
-                    playerWonRound=true;
-                }else if(kiValue.getValue()>playerValue.getValue()){
-                    playerWonRound=false;
-                }
-
-            }else if(property.getCompare()==-1){
-                if(playerValue.getValue()<kiValue.getValue()){
-                    playerWonRound=true;
-                }else if(kiValue.getValue()<playerValue.getValue()){
-                    playerWonRound=false;
-                }
-            }
+            playersTurn = !playersTurn;
 
 
 
-            //distributing cards win lose draw
-            if(playerValue.getValue()==kiValue.getValue()){
-                player.addCard(player.removeCard());
-                ki.addCard(ki.removeCard());
-                player.addCard(ki.removeCard());
-                Intent intent = new Intent(this, EndOfRound.class);
-                intent.putExtra("playerCardName", playerCard.getName());
-                intent.putExtra("kiCardName", kiCard.getName());
-                intent.putExtra("playerCardImagePath", playerCard.getImages().get(0).getFilename());
-                intent.putExtra("kiCardImagePath", kiCard.getImages().get(0).getFilename());
-                intent.putExtra("property", property.getText());
-                intent.putExtra("playerCardValue", playerValue.getValue());
-                intent.putExtra("kiCardValue", kiValue.getValue());
-                intent.putExtra("won", "DRAW!");
-                startActivity(intent);
+            //}
+            //TODO: add stats to player profile with same name, possibly create stats file
 
-            }
-            else if(playerWonRound){
-                player.addCard(ki.removeCard());
-                Intent intent = new Intent(this, EndOfRound.class);
-                intent.putExtra("playerCardName", playerCard.getName());
-                intent.putExtra("kiCardName", kiCard.getName());
-                intent.putExtra("playerCardImagePath", playerCard.getImages().get(0).getFilename());
-                intent.putExtra("kiCardImagePath", kiCard.getImages().get(0).getFilename());
-                intent.putExtra("property", property.getText());
-                intent.putExtra("playerCardValue", playerValue.getValue());
-                intent.putExtra("kiCardValue", kiValue.getValue());
-                intent.putExtra("won", "YOU WIN!");
-                startActivity(intent);
-
-            }else if(!playerWonRound){
-                ki.addCard(player.removeCard());
-
-                Intent intent = new Intent(this, EndOfRound.class);
-                intent.putExtra("playerCardName", playerCard.getName());
-                intent.putExtra("kiCardName", kiCard.getName());
-                intent.putExtra("playerCardImagePath", playerCard.getImages().get(0).getFilename());
-                intent.putExtra("kiCardImagePath", kiCard.getImages().get(0).getFilename());
-                intent.putExtra("property", property.getText());
-                intent.putExtra("playerCardValue", playerValue.getValue());
-                intent.putExtra("kiCardValue", kiValue.getValue());
-                intent.putExtra("won", "YOU LOST!");
-                startActivity(intent);
-            }
-
-            if(playersTurn){
-                playersTurn = false;
-            } else {
-                playersTurn = true;
-            }
-
-
-
-            //TODO: get next card and repeat
+        }else{
+            showEndOfGameDialog();
         }
-        //TODO: add stats to player profile with same name, possibly create stats file
-
 
         //returning if player won the game or not
         return true;
     }
 
-    private void waitForUserSelection() {
+    private void showEndOfGameDialog() {
+    }
+
+    private void endOfRoundStuff() {
+        if(property.getCompare()==1){
+            if(playerValue.getValue()>kiValue.getValue()){
+                playerWonRound=true;
+            }else if(kiValue.getValue()>playerValue.getValue()){
+                playerWonRound=false;
+            }
+
+        }else if(property.getCompare()==-1){
+            if(playerValue.getValue()<kiValue.getValue()){
+                playerWonRound=true;
+            }else if(kiValue.getValue()<playerValue.getValue()){
+                playerWonRound=false;
+            }
+        }
+
+
+
+        //distributing cards win lose draw
+        if(playerValue.getValue()==kiValue.getValue()){
+            player.addCard(player.removeCard());
+            ki.addCard(ki.removeCard());
+
+            showEndOfRoundDialog("DRAW!");
+
+
+
+
+        }
+        else if(playerWonRound){
+            player.addCard(ki.removeCard());
+            player.addCard(player.removeCard());
+
+            showEndOfRoundDialog("YOU WIN!");
+
+        }else if(!playerWonRound){
+            ki.addCard(player.removeCard());
+            ki.addCard(ki.removeCard());
+
+            showEndOfRoundDialog("YOU LOST!");
+        }
 
     }
 
-    private int playerSelectedCard() {
-        return 1;
+    private void showEndOfRoundDialog(String s) {
+        Intent intent = new Intent(this, EndOfRound.class);
+        intent.putExtra("playerCardName", playerCard.getName());
+        intent.putExtra("kiCardName", kiCard.getName());
+        intent.putExtra("playerCardImagePath", playerCard.getImages().get(0).getFilename());
+        intent.putExtra("kiCardImagePath", kiCard.getImages().get(0).getFilename());
+        intent.putExtra("property", property.getText());
+        intent.putExtra("playerCardValue", Double.toString(playerValue.getValue()));
+
+        intent.putExtra("kiCardValue", Double.toString(kiValue.getValue()));
+        intent.putExtra("won", s);
+        startActivity(intent);
     }
+
+
+
+
+
+
 
     public void loadCard(Card card) {
 
@@ -300,12 +410,7 @@ public class InGame extends AppCompatActivity{
         //continue
         continueButton = (Button) v.getRootView().findViewById(R.id.continueButton);
 
-        continueButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                playerSelection = playerSelectedCard();
-            }
-        });
+
 
     }
 }
