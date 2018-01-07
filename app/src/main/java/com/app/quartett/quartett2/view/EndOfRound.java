@@ -74,7 +74,7 @@ public class EndOfRound extends AppCompatActivity {
         ownAttrValueTextView.setText(intent.getStringExtra("playerCardValue"));
         //double kiCardValue = 0;
         //intent.getDoubleExtra("kiCardValue", kiCardValue);
-        opponentAttrValueTextView.setText(intent.getStringExtra("playerCardValue"));
+        opponentAttrValueTextView.setText(intent.getStringExtra("kiCardValue"));
 
         //ownAttrValueTextView.setText(String.valueOf(intent.getStringExtra("playerCardValue")));
         gameStateTextView.setText(intent.getStringExtra("won"));
