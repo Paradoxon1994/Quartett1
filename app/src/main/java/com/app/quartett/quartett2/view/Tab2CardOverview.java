@@ -55,6 +55,7 @@ public class Tab2CardOverview extends Fragment{
     public String actualPicture;
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -86,30 +87,44 @@ public class Tab2CardOverview extends Fragment{
     }
 
     @Override
-    public void onStart(){
-
-
-
-        rightArrowImageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nextCard();
-            }
-        });
-        leftArrowImageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                previousCard();
-            }
-        });
+    public void onStart() {
 
         super.onStart();
+
+
+            rightArrowImageButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    nextCard();
+                }
+            });
+            leftArrowImageButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    previousCard();
+                }
+            });
+    }
+
+    @Override
+    public void onResume(){
+
+        super.onResume();
+
+        if (Categories.switchedDecks) {
+            Categories.switchedDecks = false;
+            firstNumberTextView.setText("1");
+            loadCard(MainActivity.getLoadedDeck().getCards().get(0));
+            if (Categories.getSelectedDeck() == "bikes") {
+                cardPictureImageView.setImageResource(R.drawable.bikes1);
+            } else {
+                cardPictureImageView.setImageResource(R.drawable.tuning1);
+            }
+        }
     }
 
 
     public void loadCard(Card card) {
-
-        //attr1OverviewTextView.setText(actualPicture);
 
         nameTextField.setText(card.getName());
         //setting up right properties with values

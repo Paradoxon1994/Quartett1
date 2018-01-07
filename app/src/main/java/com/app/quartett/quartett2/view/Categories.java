@@ -30,6 +30,9 @@ public class Categories extends AppCompatActivity {
     //selected Deck
     private static String selectedDeck;
 
+    //switchedDeck
+    public static boolean switchedDecks = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +55,7 @@ public class Categories extends AppCompatActivity {
                 selectedDeck = "bikes";
                 MainActivity.setLoadedDeck(readDeck(selectedDeck));
                 Tab1MainMenu.switchTheme();
-                Tab2CardOverview test = new Tab2CardOverview();
+                switchedDecks = true;
                 finish();
             }
         });
@@ -63,6 +66,7 @@ public class Categories extends AppCompatActivity {
                 selectedDeck = "tuning";
                 MainActivity.setLoadedDeck(readDeck(selectedDeck));
                 Tab1MainMenu.switchTheme();
+                switchedDecks = true;
                 finish();
             }
         });
