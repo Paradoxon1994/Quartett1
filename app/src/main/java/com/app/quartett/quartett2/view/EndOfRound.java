@@ -1,6 +1,7 @@
 package com.app.quartett.quartett2.view;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 
 import com.app.quartett.quartett2.MainActivity;
 import com.app.quartett.quartett2.R;
+
+import junit.framework.Assert;
 
 import static java.security.AccessController.getContext;
 
@@ -42,13 +45,13 @@ public class EndOfRound extends AppCompatActivity {
 
     }
 
-    /*protected void onStart(){
+    protected void onStart(){
        super.onStart();
 
         //saving data from
         getDataFromIntent(getIntent());
 
-    }*/
+    }
 
     private void getDataFromIntent(Intent intent){
         cardNameTextView.setText(intent.getStringExtra("playerCardName"));
@@ -70,9 +73,18 @@ public class EndOfRound extends AppCompatActivity {
         gameStateTextView.setText(intent.getStringExtra("won"));
 
         //cardimages
-        ownCardImageView.setImageResource(getResources().getIdentifier("R.id.Categories.getSelectedDeck()" + intent.getStringExtra("1"), null, null));
+        ownCardImageView.setImageResource(getDrawable(this, "bikes1.jpg"));
         opponentCardImageView.setImageResource(getResources().getIdentifier("R.id.Categories.getSelectedDeck()" + intent.getStringExtra("1"), null, null));
 
+    }
+
+    public static int getDrawable(Context context, String name)
+    {
+        Assert.assertNotNull(context);
+        Assert.assertNotNull(name);
+
+        return context.getResources().getIdentifier(name,
+                "drawable", context.getPackageName());
     }
 
     private void initialization(View v) {
