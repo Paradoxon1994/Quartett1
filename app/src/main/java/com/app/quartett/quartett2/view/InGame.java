@@ -172,7 +172,7 @@ public class InGame extends AppCompatActivity{
                 intent.putExtra("property", property.getText());
                 intent.putExtra("playerCardValue", playerValue.getValue());
                 intent.putExtra("kiCardValue", kiValue.getValue());
-                intent.putExtra("won", "draw");
+                intent.putExtra("won", "DRAW!");
                 startActivity(intent);
 
             }
@@ -186,7 +186,7 @@ public class InGame extends AppCompatActivity{
                 intent.putExtra("property", property.getText());
                 intent.putExtra("playerCardValue", playerValue.getValue());
                 intent.putExtra("kiCardValue", kiValue.getValue());
-                intent.putExtra("won", "win");
+                intent.putExtra("won", "YOU WIN!");
                 startActivity(intent);
 
             }else if(!playerWonRound){
@@ -200,7 +200,7 @@ public class InGame extends AppCompatActivity{
                 intent.putExtra("property", property.getText());
                 intent.putExtra("playerCardValue", playerValue.getValue());
                 intent.putExtra("kiCardValue", kiValue.getValue());
-                intent.putExtra("won", "loss");
+                intent.putExtra("won", "YOU LOST!");
                 startActivity(intent);
             }
 

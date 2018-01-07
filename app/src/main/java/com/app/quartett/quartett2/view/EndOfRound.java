@@ -1,6 +1,7 @@
 package com.app.quartett.quartett2.view;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,7 +9,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.app.quartett.quartett2.MainActivity;
 import com.app.quartett.quartett2.R;
+
+import static java.security.AccessController.getContext;
 
 
 public class EndOfRound extends AppCompatActivity {
@@ -28,6 +32,9 @@ public class EndOfRound extends AppCompatActivity {
     //button for continuing
     public Button continueButton;
 
+    //strings for display purpose
+    private String playerCardName, kiCardName, playerCardImagePath, kiCardImagePath, property, playerCardValue, kiCardValue, winner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +43,38 @@ public class EndOfRound extends AppCompatActivity {
         //initialization
         initialization(findViewById(android.R.id.content));
 
+    }
+
+    protected void onStart(){
+        super.onStart();
+
+        //saving data from
+        getDataFromIntent(getIntent());
+
+    }
+
+    private void getDataFromIntent(Intent intent){
+        cardNameTextView.setText(intent.getStringExtra("playerCardName"));
+        opponentCardNameTextView.setText(intent.getStringExtra("kiCardName"));
+        ownCardImageView.setImageResource(this.getResources().getIdentifier(Categories.getSelectedDeck() + intent.getStringExtra("1"), "drawable", getPackageName()));
+        opponentCardImageView.setImageResource(getResources().getIdentifier(Categories.getSelectedDeck() + intent.getStringExtra("kiCardImagePath"), "drawable", getApplicationContext().getPackageName()));
+        ownAttrNameTextView.setText(intent.getStringExtra("property"));
+        opponentAttrNameTextView.setText(intent.getStringExtra("property"));
+
+        //saving values
+        double playerCardValue = 0;
+        intent.getDoubleExtra("playerCardValue", playerCardValue);
+        opponentAttrValueTextView.setText(String.valueOf(playerCardValue));
+        double kiCardValue = 0;
+        intent.getDoubleExtra("kiCardValue", kiCardValue);
+        opponentAttrValueTextView.setText(String.valueOf(kiCardValue));
+
+        //ownAttrValueTextView.setText(String.valueOf(intent.getStringExtra("playerCardValue")));
+        gameStateTextView.setText(intent.getStringExtra("won"));
+
+        //cardimages
+        ownCardImageView.setImageResource(getResources().getIdentifier("R.id.Categories.getSelectedDeck()" + intent.getStringExtra("1"), null, null));
+        opponentCardImageView.setImageResource(getResources().getIdentifier("R.id.Categories.getSelectedDeck()" + intent.getStringExtra("1"), null, null));
 
     }
 
@@ -60,9 +99,5 @@ public class EndOfRound extends AppCompatActivity {
 
         //continue button
         continueButton = (Button) v.getRootView().findViewById(R.id.continueButton);
-
-
-
-
     }
 }
