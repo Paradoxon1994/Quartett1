@@ -217,6 +217,8 @@ public class InGame extends AppCompatActivity{
         //while (game.getRoundCounter()<game.getMaxRounds()&& player.getCards().size()!=0 &&ki.getCards().size()!=0){
         
         if(game.getRoundCounter()<game.getMaxRounds()&& player.getCards().size()!=0 &&ki.getCards().size()!=0) {
+
+            //TODO: abbruchbedingung für max runden
             roundCounter++;
             numberOfRoundTextView.setText( Integer.toString(roundCounter)+ " Cards left:  " + player.getCards().size());
             continueButton.setEnabled(false);
