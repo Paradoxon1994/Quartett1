@@ -13,13 +13,13 @@ public class MyPreferenceFragment extends PreferenceFragment
 {
 
     //numberpickers of the rounds and time
-    private static NumberPickerPreference numberOfRounds, selectionTime;
+    private NumberPickerPreference numberOfRounds, selectionTime;
 
     //difficultyPreference
-    private static ListPreference difficultyPreference;
+    private ListPreference difficultyPreference;
 
     //checkbox for notification
-    private static CheckBoxPreference notification;
+    private CheckBoxPreference notification;
 
 
 
@@ -29,11 +29,11 @@ public class MyPreferenceFragment extends PreferenceFragment
     {
         super.onCreate(savedInstanceState);
 
-        //init stuff
-        initialization();
-
         // Load the preferences from an XML resource
         addPreferencesFromResource(R.xml.fragment_preference);
+
+        //init stuff
+        initialization();
     }
 
     public static int getDifficulty() {
