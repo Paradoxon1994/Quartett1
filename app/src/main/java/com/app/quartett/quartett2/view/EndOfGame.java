@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.app.quartett.quartett2.MainActivity;
@@ -18,7 +19,7 @@ public class EndOfGame extends AppCompatActivity{
     public Button mainMenuButton, playAgainButton;
 
     //button for sharing your awesome sh*t
-    public Button shareButton;
+    public ImageButton shareButton;
 
     //editable textViews needed in this activity
     public TextView roundsPlayedTextView, roundsWonTextView, kiCardsLeftTextView, playerCardsLeftTextView, gameStateTextView;
@@ -80,7 +81,7 @@ public class EndOfGame extends AppCompatActivity{
         playAgainButton = (Button) v.getRootView().findViewById(R.id.playAgainButton);
 
         //share ur shit button
-        shareButton = (Button) v.getRootView().findViewById(R.id.shareButton);
+        shareButton = (ImageButton) v.getRootView().findViewById(R.id.shareButton);
 
         //informations textviews
         roundsPlayedTextView = (TextView) v.getRootView().findViewById(R.id.roundsPlayedTextView);
