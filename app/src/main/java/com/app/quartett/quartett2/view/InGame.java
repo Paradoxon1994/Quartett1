@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -80,7 +81,7 @@ public class InGame extends AppCompatActivity{
     int roundCounter=0;
     int roundsWonCounter=0;
     Boolean playerWonRound=false;
-    Boolean playersTurn=false;
+    Boolean playersTurn=true;
 
 
 
@@ -138,11 +139,26 @@ public class InGame extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 continueButton.setEnabled(true);
-                attr2TextView.setEnabled(false);
+                attr1TextView.setBackgroundColor(Color.RED);
+                attr2TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr3TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr4TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr5TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr6TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+
+
+
+                /*attr1TextView.setPressed(true);
+                attr2TextView.setPressed(false);
+                attr3TextView.setPressed(false);
+                attr4TextView.setPressed(false);
+                attr5TextView.setPressed(false);
+                attr6TextView.setPressed(false);*/
+                /*attr2TextView.setEnabled(false);
                 attr3TextView.setEnabled(false);
                 attr4TextView.setEnabled(false);
                 attr5TextView.setEnabled(false);
-                attr6TextView.setEnabled(false);
+                attr6TextView.setEnabled(false);*/
 
                 playerSelection=1;
             }
@@ -153,11 +169,23 @@ public class InGame extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 continueButton.setEnabled(true);
-                attr1TextView.setEnabled(false);
+                attr1TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr2TextView.setBackgroundColor(Color.RED);
+                attr3TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr4TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr5TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr6TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                /*attr1TextView.setPressed(false);
+                attr2TextView.setPressed(true);
+                attr3TextView.setPressed(false);
+                attr4TextView.setPressed(false);
+                attr5TextView.setPressed(false);
+                attr6TextView.setPressed(false);*/
+                /*attr1TextView.setEnabled(false);
                 attr3TextView.setEnabled(false);
                 attr4TextView.setEnabled(false);
                 attr5TextView.setEnabled(false);
-                attr6TextView.setEnabled(false);
+                attr6TextView.setEnabled(false);*/
                 playerSelection=2;
             }
         });
@@ -165,11 +193,24 @@ public class InGame extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 continueButton.setEnabled(true);
-                attr1TextView.setEnabled(false);
+                attr1TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr2TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr3TextView.setBackgroundColor(Color.RED);
+                attr4TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr5TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr6TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+
+                /*attr1TextView.setPressed(false);
+                attr2TextView.setPressed(false);
+                attr3TextView.setPressed(true);
+                attr4TextView.setPressed(false);
+                attr5TextView.setPressed(false);
+                attr6TextView.setPressed(false);*/
+               /* attr1TextView.setEnabled(false);
                 attr2TextView.setEnabled(false);
                 attr4TextView.setEnabled(false);
                 attr5TextView.setEnabled(false);
-                attr6TextView.setEnabled(false);
+                attr6TextView.setEnabled(false);*/
                 playerSelection=3;
             }
         });
@@ -178,11 +219,23 @@ public class InGame extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 continueButton.setEnabled(true);
-                attr1TextView.setEnabled(false);
+                attr1TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr2TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr3TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr4TextView.setBackgroundColor(Color.RED);
+                attr5TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr6TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                /*attr1TextView.setPressed(false);
+                attr2TextView.setPressed(false);
+                attr3TextView.setPressed(false);
+                attr4TextView.setPressed(true);
+                attr5TextView.setPressed(false);
+                attr6TextView.setPressed(false);*/
+                /*attr1TextView.setEnabled(false);
                 attr2TextView.setEnabled(false);
                 attr3TextView.setEnabled(false);
                 attr5TextView.setEnabled(false);
-                attr6TextView.setEnabled(false);
+                attr6TextView.setEnabled(false);*/
                 playerSelection=4;
             }
         });
@@ -190,11 +243,23 @@ public class InGame extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 continueButton.setEnabled(true);
-                attr1TextView.setEnabled(false);
+                attr1TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr2TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr3TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr4TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr5TextView.setBackgroundColor(Color.RED);
+                attr6TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                /*attr1TextView.setPressed(false);
+                attr2TextView.setPressed(false);
+                attr3TextView.setPressed(false);
+                attr4TextView.setPressed(false);
+                attr5TextView.setPressed(true);
+                attr6TextView.setPressed(false);*/
+                /*attr1TextView.setEnabled(false);
                 attr2TextView.setEnabled(false);
                 attr3TextView.setEnabled(false);
                 attr4TextView.setEnabled(false);
-                attr6TextView.setEnabled(false);
+                attr6TextView.setEnabled(false);*/
                 playerSelection=5;
             }
         });
@@ -203,11 +268,23 @@ public class InGame extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 continueButton.setEnabled(true);
-                attr1TextView.setEnabled(false);
+                attr1TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr2TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr3TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr4TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr5TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+                attr6TextView.setBackgroundColor(Color.RED);
+                /*attr1TextView.setPressed(false);
+                attr2TextView.setPressed(false);
+                attr3TextView.setPressed(false);
+                attr4TextView.setPressed(false);
+                attr5TextView.setPressed(false);
+                attr6TextView.setPressed(true);*/
+                /*attr1TextView.setEnabled(false);
                 attr2TextView.setEnabled(false);
                 attr3TextView.setEnabled(false);
                 attr4TextView.setEnabled(false);
-                attr5TextView.setEnabled(false);
+                attr5TextView.setEnabled(false);*/
                 playerSelection=6;
             }
         });
