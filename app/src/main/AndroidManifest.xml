@@ -25,6 +25,8 @@
         <activity android:name=".view.Categories"></activity>
         <activity android:name=".view.InGame"></activity>
         <activity android:name=".view.EndOfRound"></activity>
+        <activity android:name=".view.EndOfGame"></activity>
+
     </application>
 
 </manifest>

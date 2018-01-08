@@ -296,6 +296,9 @@ public class InGame extends AppCompatActivity{
     }
 
     private void showEndOfGameDialog() {
+
+        Intent intent = new Intent(this,EndOfGame.class);
+        startActivity(intent);
     }
 
     private void endOfRoundStuff() {

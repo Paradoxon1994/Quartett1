@@ -48,8 +48,8 @@ public class MyPreferenceFragment extends PreferenceFragment
     }
 
     public static int getNumberOfRounds() {
-        //return numberOfRounds.getValue();
-        return 30;
+        return numberOfRounds.getValue();
+        //return 30;
         }
 
     public static int getSelectionTime() {
