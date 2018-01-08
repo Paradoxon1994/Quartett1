@@ -24,7 +24,6 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/nameTextView"
             android:layout_toStartOf="@+id/textView2"
-            android:text="4"
             android:textSize="30sp" />
 
         <TextView
@@ -43,7 +42,6 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/textView2"
             android:layout_alignBottom="@+id/leftArrowImageButton"
-            android:text="20"
             android:textSize="30sp" />
 
 
@@ -54,7 +52,6 @@
             android:layout_below="@+id/leftArrowImageButton"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
-            android:text="Mercedes G-Klasse 4x4 sqaured"
             android:textSize="18sp" />
 
         <ImageButton

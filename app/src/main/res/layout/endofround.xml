@@ -18,8 +18,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginLeft="16dp"
             android:gravity="center"
-            android:textSize="30sp"
-            android:text="TEST ME PLEASE" />
+            android:textSize="30sp" />
 
 
         <TextView
@@ -28,8 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/gameStateTextView"
             android:layout_marginTop="16dp"
-            android:layout_centerHorizontal="true"
-            android:text="Mercedes G-Klasse 4x4 squared" />
+            android:layout_centerHorizontal="true" />
 
         <ImageView
             android:id="@+id/ownCardImageView"
@@ -37,8 +35,7 @@
             android:layout_height="120dp"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/cardNameTextView"
-            android:layout_marginTop="8dp"
-            app:srcCompat="@mipmap/ic_launcher" />
+            android:layout_marginTop="8dp" />
 
         <TextView
             android:id="@+id/ownAttrNameTextView"
@@ -46,8 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/gameStateTextView"
             android:layout_below="@+id/ownCardImageView"
-            android:layout_marginTop="16dp"
-            android:text="Enter Attribute Here" />
+            android:layout_marginTop="16dp" />
 
         <TextView
             android:id="@+id/ownAttrValueTextView"
@@ -55,17 +51,14 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_alignEnd="@+id/gameStateTextView"
-            android:layout_alignTop="@+id/ownAttrNameTextView"
-
-            android:text="19954" />
+            android:layout_alignTop="@+id/ownAttrNameTextView" />
 
         <TextView
             android:id="@+id/opponentAttrNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/ownAttrNameTextView"
-            android:layout_below="@+id/ownAttrNameTextView"
-            android:text="Enter Attribute Here" />
+            android:layout_below="@+id/ownAttrNameTextView" />
 
         <TextView
             android:id="@+id/opponentAttrValueTextView"
@@ -73,8 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_alignTop="@+id/opponentAttrNameTextView"
-            android:layout_alignEnd="@+id/gameStateTextView"
-            android:text="19945" />
+            android:layout_alignEnd="@+id/gameStateTextView" />
 
         <ImageView
             android:id="@+id/opponentCardImageView"
@@ -82,8 +74,7 @@
             android:layout_height="120dp"
             android:layout_below="@+id/opponentAttrNameTextView"
             android:layout_marginTop="16dp"
-            android:layout_centerHorizontal="true"
-            app:srcCompat="@drawable/fidgetspinnertheme" />
+            android:layout_centerHorizontal="true" />
 
         <TextView
             android:id="@+id/opponentCardNameTextView"
@@ -91,18 +82,18 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/opponentCardImageView"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
-            android:text="Fidget Spinner (Black Edition)" />
+            android:layout_marginTop="16dp" />
 
         <Button
             android:id="@+id/continueButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_marginBottom="8dp"
-            android:layout_marginRight="8dp"
-            android:text="Continue" />
+            android:layout_marginEnd="8dp"
+            android:background="@android:color/holo_blue_dark"
+            android:text="CONTINUE"/>
 
 
 

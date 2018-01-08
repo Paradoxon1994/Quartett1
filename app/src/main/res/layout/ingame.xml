@@ -55,7 +55,6 @@
             android:layout_below="@+id/numberOfRoundTextView"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
-            android:text="@string/emtpy"
             android:textSize="18sp" />
 
         <ImageView
@@ -75,7 +74,6 @@
             android:layout_marginLeft="16dp"
             android:layout_below="@+id/cardPictureInGameImageView"
             android:layout_marginTop="8dp"
-            android:text="@string/EMPTY"
             android:textSize="12sp" />
 
         <Button style="@style/Widget.AppCompat.Button.Colored"
@@ -86,7 +84,6 @@
             android:layout_below="@+id/attr1TextView"
             android:background="@android:color/holo_blue_dark"
             android:layout_marginTop="1dp"
-            android:text="EMPTY"
             android:textSize="12sp" />
 
         <Button style="@style/Widget.AppCompat.Button.Colored"
@@ -97,7 +94,6 @@
             android:layout_below="@+id/attr2TextView"
             android:layout_marginTop="1dp"
             android:background="@android:color/holo_blue_dark"
-            android:text="EMPTY"
             android:textSize="12sp" />
 
         <Button style="@style/Widget.AppCompat.Button.Colored"
@@ -108,7 +104,6 @@
             android:layout_below="@+id/attr3TextView"
             android:layout_marginTop="1dp"
             android:background="@android:color/holo_blue_dark"
-            android:text="EMPTY"
             android:textSize="12sp" />
 
         <Button style="@style/Widget.AppCompat.Button.Colored"
@@ -119,7 +114,6 @@
             android:layout_below="@+id/attr4TextView"
             android:layout_marginTop="1dp"
             android:background="@android:color/holo_blue_dark"
-            android:text="EMPTY"
             android:textSize="12sp" />
 
         <Button style="@style/Widget.AppCompat.Button.Colored"
@@ -130,7 +124,6 @@
             android:layout_below="@+id/attr5TextView"
             android:layout_marginTop="1dp"
             android:background="@android:color/holo_blue_dark"
-            android:text="@string/empty"
             android:textSize="12sp" />
 
         <TextView
