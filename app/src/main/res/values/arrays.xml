@@ -5,9 +5,9 @@
         <item>MEDIUM</item>
         <item>DIFFICULT</item>
     </string-array>
-    <integer-array name="difficultyvalues">
+    <string-array name="difficultyvalues">
         <item>1</item>
         <item>2</item>
         <item>3</item>
-    </integer-array>
+    </string-array>
 </resources>

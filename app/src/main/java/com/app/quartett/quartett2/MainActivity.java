@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
         PreferenceManager.setDefaultValues(this, R.xml.fragment_preference,false);
 
+
         deckName = "bikes";
 
 

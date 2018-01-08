@@ -20,7 +20,9 @@
                 android:key="difficultyPreference"
                 android:title="DIFFICULTY"
                 android:entries="@array/difficultentries"
-                android:entryValues="@array/difficultyvalues" />
+                android:entryValues="@array/difficultyvalues"
+                android:defaultValue="1"/>
+
 
             <CheckBoxPreference
                 android:key="notification"
