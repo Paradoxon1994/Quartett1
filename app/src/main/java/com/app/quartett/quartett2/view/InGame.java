@@ -1,10 +1,13 @@
 package com.app.quartett.quartett2.view;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +20,8 @@ import com.app.quartett.quartett2.model.Game;
 import com.app.quartett.quartett2.model.Player;
 import com.app.quartett.quartett2.model.Property;
 import com.app.quartett.quartett2.model.Value;
+
+import junit.framework.Assert;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -40,14 +45,17 @@ public class InGame extends AppCompatActivity{
     public ImageView cardPictureInGameImageView;
 
     //number of the ongoing round
-    public TextView numberOfRoundTextView;
+    public TextView numberOfRoundTextView, cardsLeftCounter;
 
     //continue button
-    public Button continueButton;
+    public ImageButton continueButton;
 
-    //arrays
+    //lists
     public ArrayList<TextView> attributeTextViews;
     public ArrayList<TextView> attributeValueTextViews;
+
+    //imageviews upper/lower value
+    public ImageView attr1ImageView, attr2ImageView, attr3ImageView, attr4ImageView, attr5ImageView, attr6ImageView;
 
     private Game game;
     private Player player;
@@ -113,6 +121,8 @@ public class InGame extends AppCompatActivity{
 
             }
         });
+
+        //TODO: choose another attribute and enable buttons
 
         attr1TextView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -220,7 +230,9 @@ public class InGame extends AppCompatActivity{
 
             //TODO: abbruchbedingung für max runden
             roundCounter++;
-            numberOfRoundTextView.setText( Integer.toString(roundCounter)+ " Cards left:  " + player.getCards().size());
+            numberOfRoundTextView.setText(Integer.toString(roundCounter));
+            cardsLeftCounter.setText(Integer.toString(player.getCards().size()));
+            //numberOfRoundTextView.setText( Integer.toString(roundCounter)+ " Cards left:  " + player.getCards().size());
             continueButton.setEnabled(false);
             attr1TextView.setEnabled(true);
             attr2TextView.setEnabled(true);
@@ -294,17 +306,12 @@ public class InGame extends AppCompatActivity{
             }
         }
 
-
-
         //distributing cards win lose draw
         if(playerValue.getValue()==kiValue.getValue()){
             player.addCard(player.removeCard());
             ki.addCard(ki.removeCard());
 
             showEndOfRoundDialog("DRAW!");
-
-
-
 
         }
         else if(playerWonRound){
@@ -338,14 +345,9 @@ public class InGame extends AppCompatActivity{
 
 
 
-
-
-
-
     public void loadCard(Card card) {
 
         //attr1OverviewTextView.setText(actualPicture);
-
         nameTextView.setText(card.getName());
         //setting up right properties with values
         int i = 0;
@@ -362,6 +364,15 @@ public class InGame extends AppCompatActivity{
         }
     }
 
+
+    public static int getDrawable(Context context, String name)
+    {
+        Assert.assertNotNull(context);
+        Assert.assertNotNull(name);
+
+        return context.getResources().getIdentifier(name,
+                "drawable", context.getPackageName());
+    }
 
 
     private void initialization(View v) {
@@ -400,6 +411,14 @@ public class InGame extends AppCompatActivity{
         attributeValueTextViews.add(attr5ValueTextView);
         attributeValueTextViews.add(attr6ValueTextView);
 
+        //imageViews for upper/lower value
+        attr1ImageView = (ImageView) v.getRootView().findViewById(R.id.attr1ImageView);
+        attr2ImageView = (ImageView) v.getRootView().findViewById(R.id.attr2ImageView);
+        attr3ImageView = (ImageView) v.getRootView().findViewById(R.id.attr3ImageView);
+        attr4ImageView = (ImageView) v.getRootView().findViewById(R.id.attr4ImageView);
+        attr5ImageView = (ImageView) v.getRootView().findViewById(R.id.attr5ImageView);
+        attr6ImageView = (ImageView) v.getRootView().findViewById(R.id.attr6ImageView);
+
         //card name
         nameTextView = (TextView) v.getRootView().findViewById(R.id.nameTextView);
 
@@ -409,8 +428,11 @@ public class InGame extends AppCompatActivity{
         //number of rounds
         numberOfRoundTextView = (TextView) v.getRootView().findViewById(R.id.numberOfRoundTextView);
 
+        //cards left
+        cardsLeftCounter = (TextView) v.getRootView().findViewById(R.id.cardsLeftCounter);
+
         //continue
-        continueButton = (Button) v.getRootView().findViewById(R.id.continueButton);
+        continueButton = (ImageButton) v.getRootView().findViewById(R.id.continueButton);
 
 
 

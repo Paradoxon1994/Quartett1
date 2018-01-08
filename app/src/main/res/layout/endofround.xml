@@ -9,22 +9,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <TextView
             android:id="@+id/gameStateTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
             android:layout_marginLeft="16dp"
-            android:text="Rundenstatus"
-             />
+            android:textSize="30sp"
+            android:text="TEST ME PLEASE" />
+
 
         <TextView
             android:id="@+id/cardNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/gameStateTextView"
             android:layout_below="@+id/gameStateTextView"
             android:layout_marginTop="16dp"
+            android:layout_centerHorizontal="true"
             android:text="Mercedes G-Klasse 4x4 squared" />
 
         <ImageView
@@ -40,9 +43,9 @@
             android:id="@+id/ownAttrNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/cardNameTextView"
             android:layout_below="@+id/ownCardImageView"
-            android:layout_marginTop="14dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
             android:text="Enter Attribute Here" />
 
         <TextView
@@ -84,9 +87,9 @@
             android:id="@+id/opponentCardNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/cardNameTextView"
             android:layout_below="@+id/opponentCardImageView"
-            android:layout_marginTop="14dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
             android:text="Fidget Spinner (Black Edition)" />
 
         <Button
@@ -98,6 +101,8 @@
             android:layout_marginBottom="8dp"
             android:layout_marginRight="8dp"
             android:text="Continue" />
+
+
 
 
     </RelativeLayout>

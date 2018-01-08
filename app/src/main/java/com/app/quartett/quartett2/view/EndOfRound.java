@@ -3,6 +3,7 @@ package com.app.quartett.quartett2.view;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -78,6 +79,11 @@ public class EndOfRound extends AppCompatActivity {
 
         //ownAttrValueTextView.setText(String.valueOf(intent.getStringExtra("playerCardValue")));
         gameStateTextView.setText(intent.getStringExtra("won"));
+        if(gameStateTextView.getText() == "YOU WIN!"){
+            gameStateTextView.setTextColor(Color.GREEN);
+        } else if (gameStateTextView.getText() == "YOU LOST!"){
+            gameStateTextView.setTextColor(Color.RED);
+        } else { gameStateTextView.setTextColor(Color.YELLOW); }
 
         //cardimages
         ownCardImageView.setImageResource(getDrawable(this, "bikes1.jpg"));
