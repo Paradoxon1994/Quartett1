@@ -63,8 +63,6 @@ public class EndOfRound extends AppCompatActivity {
     private void getDataFromIntent(Intent intent){
         cardNameTextView.setText(intent.getStringExtra("playerCardName"));
         opponentCardNameTextView.setText(intent.getStringExtra("kiCardName"));
-        ownCardImageView.setImageResource(this.getResources().getIdentifier(Categories.getSelectedDeck() + intent.getStringExtra("1"), "drawable", getPackageName()));
-        opponentCardImageView.setImageResource(getResources().getIdentifier(Categories.getSelectedDeck() + intent.getStringExtra("kiCardImagePath"), "drawable", getApplicationContext().getPackageName()));
         ownAttrNameTextView.setText(intent.getStringExtra("property"));
         opponentAttrNameTextView.setText(intent.getStringExtra("property"));
 

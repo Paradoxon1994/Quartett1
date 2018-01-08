@@ -94,6 +94,8 @@ public class InGame extends AppCompatActivity{
         //initialization
         initialization(findViewById(android.R.id.content));
 
+
+
         game = new Game(MyPreferenceFragment.getDifficulty(), MyPreferenceFragment.getNumberOfRounds(), MyPreferenceFragment.getSelectionTime());
         player = new Player("Name");
         deck = MainActivity.getLoadedDeck();
@@ -230,13 +232,13 @@ public class InGame extends AppCompatActivity{
 
 
 
-    public boolean startRound(){
+    public void startRound(){
         
         //while (game.getRoundCounter()<game.getMaxRounds()&& player.getCards().size()!=0 &&ki.getCards().size()!=0){
         
         if(roundCounter<game.getMaxRounds()&& player.getCards().size()!=0 &&ki.getCards().size()!=0) {
 
-            //TODO: abbruchbedingung für max runden
+
             roundCounter++;
             numberOfRoundTextView.setText(Integer.toString(roundCounter));
             cardsLeftCounter.setText(Integer.toString(player.getCards().size()));
@@ -253,13 +255,13 @@ public class InGame extends AppCompatActivity{
 
 
             if (playersTurn) {
-                //TODO: show card to player and get his selection + assign playerValue and kiValue
+
                 //property =deck.getProperties().get(playerValue.getPropertyId());
                 loadCard(playerCard);
 
 
             } else {
-                //TODO: ki selection (possibly with difficulty settings kept in mind)
+                //TODO: ki difficulty stuff
 
                 //simple ki selection for testing(maybe easy setting because random):
 
@@ -288,18 +290,22 @@ public class InGame extends AppCompatActivity{
             //TODO: add stats to player profile with same name, possibly create stats file
 
         }else{
-            showEndOfGameDialog();
+            if(player.getCards().size()>ki.getCards().size()){
+                showEndOfGameDialog("YOU WON");
+            }else if(player.getCards().size()<ki.getCards().size()){
+                showEndOfGameDialog("YOU LOST");
+            }else{
+                showEndOfGameDialog("DRAW");
+            }
+
+
         }
 
         //returning if player won the game or not
-        return true;
+
     }
 
-    private void showEndOfGameDialog() {
 
-        Intent intent = new Intent(this,EndOfGame.class);
-        startActivity(intent);
-    }
 
     private void endOfRoundStuff() {
         if(property.getCompare()==1){
@@ -330,8 +336,8 @@ public class InGame extends AppCompatActivity{
         else if(playerWonRound){
             player.addCard(ki.removeCard());
             player.addCard(player.removeCard());
-
-            showEndOfRoundDialog("YOU WIN!");
+            roundsWonCounter++;
+            showEndOfRoundDialog("YOU WON!");
 
         }else if(!playerWonRound){
             ki.addCard(player.removeCard());
@@ -339,6 +345,22 @@ public class InGame extends AppCompatActivity{
 
             showEndOfRoundDialog("YOU LOST!");
         }
+
+    }
+
+    private void showEndOfGameDialog(String s) {
+
+        Intent intent = new Intent(this,EndOfGame.class);
+
+        intent.putExtra("roundsPlayed",Integer.toString(roundCounter));
+        intent.putExtra("playerCardsLeft",Integer.toString(player.getCards().size()));
+        intent.putExtra("kiCardsLeft",Integer.toString(ki.getCards().size()));
+        intent.putExtra("roundsWon",Integer.toString(roundsWonCounter));
+        intent.putExtra("won",s);
+
+
+        startActivity(intent);
+        finish();
 
     }
 
@@ -370,6 +392,38 @@ public class InGame extends AppCompatActivity{
         Drawable res = getResources().getDrawable(imageRes);
 
         cardPictureInGameImageView.setImageDrawable(res);
+
+
+        if(deck.getProperties().get(0).getCompare()==1){
+            attr1ImageView.setImageResource(R.drawable.uparrow);
+        }else{
+            attr1ImageView.setImageResource(R.drawable.downarrow);
+        }
+        if(deck.getProperties().get(1).getCompare()==1){
+            attr2ImageView.setImageResource(R.drawable.uparrow);
+        }else{
+            attr2ImageView.setImageResource(R.drawable.downarrow);
+        }
+        if(deck.getProperties().get(2).getCompare()==1){
+            attr3ImageView.setImageResource(R.drawable.uparrow);
+        }else{
+            attr3ImageView.setImageResource(R.drawable.downarrow);
+        }
+        if(deck.getProperties().get(3).getCompare()==1){
+            attr4ImageView.setImageResource(R.drawable.uparrow);
+        }else{
+            attr4ImageView.setImageResource(R.drawable.downarrow);
+        }
+        if(deck.getProperties().get(4).getCompare()==1){
+            attr5ImageView.setImageResource(R.drawable.uparrow);
+        }else{
+            attr5ImageView.setImageResource(R.drawable.downarrow);
+        }
+        if(deck.getProperties().get(5).getCompare()==1){
+            attr6ImageView.setImageResource(R.drawable.uparrow);
+        }else{
+            attr6ImageView.setImageResource(R.drawable.downarrow);
+        }
 
 
 

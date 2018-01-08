@@ -201,51 +201,45 @@
             android:id="@+id/attr1ImageView"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_alignTop="@+id/attr1TextView"
-            android:layout_marginTop="2dp"
             android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/attr1TextView"
             android:layout_marginRight="16dp"
-            app:srcCompat="@drawable/uparrow" />
+            android:layout_marginTop="2dp" />
 
         <ImageView
             android:id="@+id/attr2ImageView"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignBottom="@+id/attr2ValueTextView"
-            android:layout_alignEnd="@+id/attr1ImageView"
-            app:srcCompat="@drawable/downarrow" />
+            android:layout_alignEnd="@+id/attr1ImageView" />
 
         <ImageView
             android:id="@+id/attr3ImageView"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignBottom="@+id/attr3ValueTextView"
-            android:layout_alignEnd="@+id/attr1ImageView"
-            app:srcCompat="@drawable/downarrow" />
+            android:layout_alignEnd="@+id/attr1ImageView" />
 
         <ImageView
             android:id="@+id/attr4ImageView"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignBottom="@+id/attr4ValueTextView"
-            android:layout_alignEnd="@+id/attr1ImageView"
-            app:srcCompat="@drawable/downarrow" />
+            android:layout_alignEnd="@+id/attr1ImageView" />
 
         <ImageView
             android:id="@+id/attr5ImageView"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignBottom="@+id/attr5ValueTextView"
-            android:layout_alignEnd="@+id/attr1ImageView"
-            app:srcCompat="@drawable/downarrow" />
+            android:layout_alignEnd="@+id/attr1ImageView" />
 
         <ImageView
             android:id="@+id/attr6ImageView"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignBottom="@+id/attr6ValueTextView"
-            android:layout_alignEnd="@+id/attr1ImageView"
-            app:srcCompat="@drawable/downarrow" />
+            android:layout_alignEnd="@+id/attr1ImageView" />
 
 
     </RelativeLayout>

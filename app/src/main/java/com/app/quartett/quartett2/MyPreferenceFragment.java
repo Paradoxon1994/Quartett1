@@ -37,28 +37,48 @@ public class MyPreferenceFragment extends PreferenceFragment
 
         //init stuff
         initialization();
+
     }
 
     public static int getDifficulty() {
-        if(difficultyPreference.getValue().equals("EASY")) {
+
+        if(difficultyPreference==null){
             return 1;
-        } else if (difficultyPreference.getValue().equals("MEDIUM")){
-            return 2;
-        } else {
-            return 3;
+        }else{
+            if(difficultyPreference.getValue().equals("EASY")) {
+                return 1;
+            } else if (difficultyPreference.getValue().equals("MEDIUM")){
+                return 2;
+            } else {
+                return 3;
+            }
+
         }
+
 
     }
 
     public static int getNumberOfRounds() {
-        return numberOfRounds.getValue();
-        //return 30;
+
+        if(numberOfRounds==null){
+            return 30;
+        }else{
+            return numberOfRounds.getValue();
+        }
+
+
         }
 
     public static int getSelectionTime() {
-        return selectionTime.getValue();
 
-        //return 10;
+        if(selectionTime==null){
+            return 10;
+        }else{
+            return selectionTime.getValue();
+        }
+
+
+
     }
 
     //TODO: see if notification is on/off
@@ -71,6 +91,5 @@ public class MyPreferenceFragment extends PreferenceFragment
         notification = (CheckBoxPreference) findPreference("notification");
 
 
-        //difficultyPreference.setValue("Medium");
     }
 }
