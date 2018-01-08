@@ -1,6 +1,5 @@
 package com.app.quartett.quartett2.view;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -11,12 +10,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.app.quartett.quartett2.MainActivity;
 import com.app.quartett.quartett2.R;
 
 import junit.framework.Assert;
 
-import static java.security.AccessController.getContext;
 
 
 public class EndOfRound extends AppCompatActivity {
@@ -79,11 +76,14 @@ public class EndOfRound extends AppCompatActivity {
 
         //ownAttrValueTextView.setText(String.valueOf(intent.getStringExtra("playerCardValue")));
         gameStateTextView.setText(intent.getStringExtra("won"));
-        if(gameStateTextView.getText() == "YOU WIN!"){
+
+        //TODO: why no color change?
+        if(intent.getStringExtra("won") == "YOU WIN!"){
             gameStateTextView.setTextColor(Color.GREEN);
-        } else if (gameStateTextView.getText() == "YOU LOST!"){
+        } else if (intent.getStringExtra("won") == "YOU LOST!"){
             gameStateTextView.setTextColor(Color.RED);
-        } else { gameStateTextView.setTextColor(Color.YELLOW); }
+        } else if(intent.getStringExtra("won") == "DRAW!"){
+            gameStateTextView.setTextColor(Color.YELLOW); }
 
         //cardimages
         ownCardImageView.setImageResource(getDrawable(this, "bikes1.jpg"));
