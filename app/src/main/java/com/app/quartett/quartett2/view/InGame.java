@@ -76,7 +76,9 @@ public class InGame extends AppCompatActivity{
     Value playerValue;
     Value kiValue;
     Property property;
+
     int roundCounter=0;
+    int roundsWonCounter=0;
     Boolean playerWonRound=false;
     Boolean playersTurn=false;
 
@@ -232,7 +234,7 @@ public class InGame extends AppCompatActivity{
         
         //while (game.getRoundCounter()<game.getMaxRounds()&& player.getCards().size()!=0 &&ki.getCards().size()!=0){
         
-        if(game.getRoundCounter()<game.getMaxRounds()&& player.getCards().size()!=0 &&ki.getCards().size()!=0) {
+        if(roundCounter<game.getMaxRounds()&& player.getCards().size()!=0 &&ki.getCards().size()!=0) {
 
             //TODO: abbruchbedingung für max runden
             roundCounter++;
@@ -300,6 +302,7 @@ public class InGame extends AppCompatActivity{
         if(property.getCompare()==1){
             if(playerValue.getValue()>kiValue.getValue()){
                 playerWonRound=true;
+
             }else if(kiValue.getValue()>playerValue.getValue()){
                 playerWonRound=false;
             }
@@ -307,6 +310,7 @@ public class InGame extends AppCompatActivity{
         }else if(property.getCompare()==-1){
             if(playerValue.getValue()<kiValue.getValue()){
                 playerWonRound=true;
+
             }else if(kiValue.getValue()<playerValue.getValue()){
                 playerWonRound=false;
             }
