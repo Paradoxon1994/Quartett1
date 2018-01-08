@@ -3,6 +3,9 @@ package com.app.quartett.quartett2.view;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -21,8 +24,11 @@ import com.app.quartett.quartett2.model.Player;
 import com.app.quartett.quartett2.model.Property;
 import com.app.quartett.quartett2.model.Value;
 
+
+
 import junit.framework.Assert;
 
+import java.io.File;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -349,6 +355,17 @@ public class InGame extends AppCompatActivity{
 
         //attr1OverviewTextView.setText(actualPicture);
         nameTextView.setText(card.getName());
+
+        String uri = "@drawable/"+ deck.getName().toLowerCase()+playerCard.getImages().get(0).getFilename();
+        uri= uri.substring(0,uri.lastIndexOf("."));
+        int imageRes = getResources().getIdentifier(uri,null,getPackageName());
+
+        Drawable res = getResources().getDrawable(imageRes);
+
+        cardPictureInGameImageView.setImageDrawable(res);
+
+
+
         //setting up right properties with values
         int i = 0;
         NumberFormat nf = new DecimalFormat("##.##");
@@ -362,6 +379,8 @@ public class InGame extends AppCompatActivity{
             }
             i++;
         }
+
+
     }
 
 
@@ -423,7 +442,7 @@ public class InGame extends AppCompatActivity{
         nameTextView = (TextView) v.getRootView().findViewById(R.id.nameTextView);
 
         //card image
-        cardPictureInGameImageView = (ImageView) v.getRootView().findViewById(R.id.cardNameTextView);
+        cardPictureInGameImageView = (ImageView) v.getRootView().findViewById(R.id.cardPictureInGameImageView);
 
         //number of rounds
         numberOfRoundTextView = (TextView) v.getRootView().findViewById(R.id.numberOfRoundTextView);

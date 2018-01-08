@@ -3,6 +3,7 @@ package com.app.quartett.quartett2.view;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.app.quartett.quartett2.MainActivity;
 import com.app.quartett.quartett2.R;
 
 import junit.framework.Assert;
@@ -86,8 +88,23 @@ public class EndOfRound extends AppCompatActivity {
             gameStateTextView.setTextColor(Color.YELLOW); }
 
         //cardimages
-        ownCardImageView.setImageResource(getDrawable(this, "bikes1.jpg"));
-        opponentCardImageView.setImageResource(getResources().getIdentifier("R.id.Categories.getSelectedDeck()" + intent.getStringExtra("1"), null, null));
+
+        String playerUri = "@drawable/"+ MainActivity.getLoadedDeck().getName().toLowerCase()+intent.getStringExtra("playerCardImagePath");
+        playerUri= playerUri.substring(0,playerUri.lastIndexOf("."));
+        int playerImageRes = getResources().getIdentifier(playerUri,null,getPackageName());
+
+        Drawable playerRes = getResources().getDrawable(playerImageRes);
+
+        ownCardImageView.setImageDrawable(playerRes);
+
+        String kiUri = "@drawable/"+ MainActivity.getLoadedDeck().getName().toLowerCase()+intent.getStringExtra("kiCardImagePath");
+        kiUri= kiUri.substring(0,kiUri.lastIndexOf("."));
+        int kiImageRes = getResources().getIdentifier(kiUri,null,getPackageName());
+
+        Drawable kiRes = getResources().getDrawable(kiImageRes);
+
+        opponentCardImageView.setImageDrawable(kiRes);
+
 
     }
 
