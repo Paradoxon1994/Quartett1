@@ -327,6 +327,14 @@ public class InGame extends AppCompatActivity{
             attr4TextView.setEnabled(true);
             attr5TextView.setEnabled(true);
             attr6TextView.setEnabled(true);
+            attr1TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+            attr2TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+            attr3TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+            attr4TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+            attr5TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+            attr6TextView.setBackgroundColor(Color.parseColor("#ff0099cc"));
+
+
             playerCard = player.getCards().get(0);
             kiCard = ki.getCards().get(0);
 
