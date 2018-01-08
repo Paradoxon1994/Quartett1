@@ -1,6 +1,7 @@
 package com.app.quartett.quartett2;
 
 import android.content.Intent;
+import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -56,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        PreferenceManager.setDefaultValues(this, R.xml.fragment_preference,false);
 
         deckName = "bikes";
 

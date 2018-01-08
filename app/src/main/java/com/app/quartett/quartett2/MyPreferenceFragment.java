@@ -7,6 +7,7 @@ import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 public class MyPreferenceFragment extends PreferenceFragment
@@ -32,6 +33,8 @@ public class MyPreferenceFragment extends PreferenceFragment
         // Load the preferences from an XML resource
         addPreferencesFromResource(R.xml.fragment_preference);
 
+
+
         //init stuff
         initialization();
     }
@@ -53,8 +56,9 @@ public class MyPreferenceFragment extends PreferenceFragment
         }
 
     public static int getSelectionTime() {
-        //return selectionTime.getValue();
-        return 10;
+        return selectionTime.getValue();
+
+        //return 10;
     }
 
     //TODO: see if notification is on/off
