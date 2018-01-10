@@ -78,11 +78,11 @@ public class EndOfRound extends AppCompatActivity {
         gameStateTextView.setText(intent.getStringExtra("won"));
 
         //TODO: why no color change?
-        if(intent.getStringExtra("won") == "YOU WIN!"){
+        if(intent.getStringExtra("won").equals("YOU WON!")){
             gameStateTextView.setTextColor(Color.GREEN);
-        } else if (intent.getStringExtra("won") == "YOU LOST!"){
+        } else if (intent.getStringExtra("won").equals("YOU LOST!")){
             gameStateTextView.setTextColor(Color.RED);
-        } else if(intent.getStringExtra("won") == "DRAW!"){
+        } else if(intent.getStringExtra("won").equals("DRAW!")){
             gameStateTextView.setTextColor(Color.YELLOW); }
 
         //cardimages
