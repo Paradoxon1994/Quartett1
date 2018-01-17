@@ -312,7 +312,13 @@ public class InGame extends AppCompatActivity{
     public void startRound(){
         
         //while (game.getRoundCounter()<game.getMaxRounds()&& player.getCards().size()!=0 &&ki.getCards().size()!=0){
-        
+
+        int numberOfProperties = MainActivity.getLoadedDeck().getProperties().size();
+        for(int i=0; i < numberOfProperties; i++){
+            attributeTextViews.get(i).setEnabled(true);
+            attributeValueTextViews.get(i).setEnabled(true);
+        }
+
         if(roundCounter<game.getMaxRounds()&& player.getCards().size()!=0 &&ki.getCards().size()!=0) {
 
 
@@ -575,6 +581,11 @@ public class InGame extends AppCompatActivity{
         attributeValueTextViews.add(attr4ValueTextView);
         attributeValueTextViews.add(attr5ValueTextView);
         attributeValueTextViews.add(attr6ValueTextView);
+
+        for(int j=0; j < 5; j++){
+            attributeValueTextViews.get(j).setEnabled(false);
+            attributeTextViews.get(j).setEnabled(false);
+        }
 
         //imageViews for upper/lower value
         attr1ImageView = (ImageView) v.getRootView().findViewById(R.id.attr1ImageView);

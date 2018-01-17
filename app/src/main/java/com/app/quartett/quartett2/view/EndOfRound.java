@@ -102,8 +102,6 @@ public class EndOfRound extends AppCompatActivity {
         Drawable kiRes = getResources().getDrawable(kiImageRes);
 
         opponentCardImageView.setImageDrawable(kiRes);
-
-
     }
 
 

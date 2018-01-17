@@ -15,7 +15,6 @@ import android.widget.TextView;
 import com.app.quartett.quartett2.MainActivity;
 import com.app.quartett.quartett2.R;
 import com.app.quartett.quartett2.model.Card;
-import com.app.quartett.quartett2.model.Deck;
 import com.app.quartett.quartett2.model.Property;
 import com.app.quartett.quartett2.model.Value;
 
