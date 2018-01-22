@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class Categories extends AppCompatActivity {
 
     //imageviews for themes
-    public ImageView theme1ImageView, theme2ImageView;
+    public ImageView theme1ImageView, theme2ImageView, theme3ImageView, theme4ImageView;
 
     //selected Deck
     private static String selectedDeck;
@@ -165,5 +165,7 @@ public class Categories extends AppCompatActivity {
     public void initialize(View v){
         theme1ImageView = (ImageView) v.getRootView().findViewById(R.id.theme1ImageView);
         theme2ImageView = (ImageView) v.getRootView().findViewById(R.id.theme2ImageView);
+        theme3ImageView = (ImageView) v.getRootView().findViewById(R.id.theme3ImageView);
+        theme4ImageView = (ImageView) v.getRootView().findViewById(R.id.theme4ImageView);
     }
 }

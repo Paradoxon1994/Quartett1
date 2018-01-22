@@ -5,42 +5,74 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <RelativeLayout
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
 
 
-        <TextView
-            android:id="@+id/notImportant"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
-            android:textSize="25sp"
-            android:text="SELECT YOUR THEME" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/theme1ImageView"
-            android:layout_width="250dp"
-            android:layout_height="150dp"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/notImportant"
-            android:layout_marginTop="8dp"
-            android:clickable="true"
-            android:src="@drawable/bikes1"/>
 
-        <ImageView
-            android:id="@+id/theme2ImageView"
-            android:layout_width="250dp"
-            android:layout_height="150dp"
-            android:layout_below="@+id/theme1ImageView"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="32dp"
-            android:src="@drawable/tuning1"
-            android:clickable="true"
-            />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/notImportant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="16dp"
+                    android:text="SELECT YOUR THEME"
+                    android:textSize="25sp" />
+
+                <ImageView
+                    android:id="@+id/theme1ImageView"
+                    android:layout_width="250dp"
+                    android:layout_height="150dp"
+                    android:layout_below="@+id/notImportant"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:clickable="true"
+                    android:src="@drawable/bikes1" />
+
+                <ImageView
+                    android:id="@+id/theme2ImageView"
+                    android:layout_width="250dp"
+                    android:layout_height="150dp"
+                    android:layout_below="@+id/theme1ImageView"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="32dp"
+                    android:clickable="true"
+                    android:src="@drawable/tuning1" />
+
+                <ImageView
+                    android:id="@+id/theme3ImageView"
+                    android:layout_width="250dp"
+                    android:layout_height="150dp"
+                    android:layout_below="@+id/theme2ImageView"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="32dp"
+                    android:clickable="true"
+                    android:src="@drawable/tuning1" />
+
+                <ImageView
+                    android:id="@+id/theme4ImageView"
+                    android:layout_width="250dp"
+                    android:layout_height="150dp"
+                    android:layout_below="@+id/theme3ImageView"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="32dp"
+                    android:clickable="true"
+                    android:src="@drawable/tuning1" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>
