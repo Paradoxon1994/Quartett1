@@ -162,6 +162,10 @@ public class Categories extends AppCompatActivity {
         selectedDeck = s;
     }
 
+    public void setUpConnection(){
+
+    }
+
     public void initialize(View v){
         theme1ImageView = (ImageView) v.getRootView().findViewById(R.id.theme1ImageView);
         theme2ImageView = (ImageView) v.getRootView().findViewById(R.id.theme2ImageView);
