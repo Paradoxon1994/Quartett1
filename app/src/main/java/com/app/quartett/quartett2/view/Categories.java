@@ -234,7 +234,7 @@ public class Categories extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         //show something went wrong
-                        // TODO Auto-generated method stub
+                        error.printStackTrace();
 
                     }
                 }) {@Override
