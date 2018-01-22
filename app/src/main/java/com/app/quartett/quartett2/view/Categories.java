@@ -3,10 +3,20 @@ package com.app.quartett.quartett2.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.app.quartett.quartett2.MainActivity;
 import com.app.quartett.quartett2.R;
 import com.app.quartett.quartett2.Utilities;
@@ -21,6 +31,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Categories extends AppCompatActivity {
 
@@ -32,6 +44,9 @@ public class Categories extends AppCompatActivity {
 
     //switchedDeck
     public static boolean switchedDecks = false;
+
+
+    String basicUrl =  "http://quartett.af-mba.dbis.info/decks/";
 
 
     @Override
@@ -162,7 +177,103 @@ public class Categories extends AppCompatActivity {
         selectedDeck = s;
     }
 
-    public void setUpConnection(){
+    public void loadDecks(){
+
+        setUpConnection(basicUrl,0,-1,-1);
+
+    }
+
+    public void loadDeck(int deckId){
+        String url = basicUrl + Integer.toString(deckId);
+        setUpConnection(url,1,deckId,-1);
+
+    }
+
+    public void loadCards(int deckId){
+        String url = basicUrl + Integer.toString(deckId) + "cards";
+        setUpConnection(url,2,deckId,-1);
+    }
+
+    public void loadCard(int deckId,int cardId){
+        String url = basicUrl + Integer.toString(deckId) + "cards" + Integer.toString(cardId);
+        setUpConnection(url,3,deckId,cardId);
+    }
+
+    public void loadAttributes(int deckId, int cardId){
+
+        String url = basicUrl + Integer.toString(deckId) + "cards" + Integer.toString(cardId) + "attributes";
+
+        setUpConnection(url,4,deckId,cardId);
+
+    }
+
+    public void loadImages(int deckId, int cardId){
+        String url = basicUrl + Integer.toString(deckId) + "cards" + Integer.toString(cardId) + "images";
+        setUpConnection(url,5,deckId,cardId);
+    }
+
+
+
+
+
+    public void setUpConnection(String url, final int uid, final int deckId, final int cardId){
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        handleJSONObject(response,uid,deckId,cardId);
+
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        //show something went wrong
+                        // TODO Auto-generated method stub
+
+                    }
+                }) {@Override
+        public Map< String, String > getHeaders() throws AuthFailureError {
+            HashMap < String, String > headers = new HashMap<>();
+            //maybe we need admin:password here
+            String encodedCredentials = Base64.encodeToString("c3R1ZGVudDphZm1iYQ==".getBytes(), Base64.NO_WRAP);
+            headers.put("Authorization", "Basic " + encodedCredentials);
+            headers.put("Content-Type", "application/json");
+
+            return headers;
+        }
+        };
+
+
+        queue.add(jsObjRequest);
+
+
+
+
+    }
+
+    private void handleJSONObject(JSONObject obj,int uid,int deckId, int cardId) {
+
+        switch(uid) {
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+        }
+
 
     }
 
