@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Quartett1.iml" filepath="$PROJECT_DIR$/Quartett1.iml" />
       <module fileurl="file://C:\Users\Timo\AndroidStudioProjects\Quartett2\Quartett1.iml" filepath="C:\Users\Timo\AndroidStudioProjects\Quartett2\Quartett1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Quartett2.iml" filepath="$PROJECT_DIR$/Quartett2.iml" />
       <module fileurl="file://D:\Uni\Mobile Application Lab\Quartett1\Quartett2.iml" filepath="D:\Uni\Mobile Application Lab\Quartett1\Quartett2.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/volley/volley.iml" filepath="$PROJECT_DIR$/volley/volley.iml" />
