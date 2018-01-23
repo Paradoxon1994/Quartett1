@@ -149,6 +149,7 @@ public class Tab2CardOverview extends Fragment{
 
         if (Categories.switchedDecks) {
             Categories.switchedDecks = false;
+            secondNumberTextView.setText(String.valueOf(MainActivity.getLoadedDeck().getCards().size()));
             firstNumberTextView.setText("1");
             if(MainActivity.getLoadedDeck().getCards().size()!= 0 ){
                 loadCard(MainActivity.getLoadedDeck().getCards().get(0));

@@ -275,13 +275,13 @@ public class Categories extends AppCompatActivity {
     }
 
     public void loadDeck(int deckId){
-        String url = basicUrl + Integer.toString(deckId);
+        String url = basicUrl +Integer.toString(deckId);
         setUpConnection(url,1,deckId,-1);
 
     }
 
     public void loadCards(int deckId){
-        String url = basicUrl + Integer.toString(deckId) + "cards";
+        String url = basicUrl + Integer.toString(deckId) + "/cards";
         setUpConnection(url,2,deckId,-1);
     }
 
@@ -289,22 +289,24 @@ public class Categories extends AppCompatActivity {
 
     public void loadAttributes(int deckId, int cardId){
 
-        String url = basicUrl + Integer.toString(deckId) + "cards" + Integer.toString(cardId) + "attributes";
+        String url = basicUrl + Integer.toString(deckId) + "/cards/" + Integer.toString(cardId) + "/attributes";
 
         setUpConnection(url,4,deckId,cardId);
 
     }
 
     private void loadProperties(int deckId,int cardId) {
-        String url = basicUrl + Integer.toString(deckId) + "cards" + Integer.toString(cardId) + "attributes";
+        String url = basicUrl + Integer.toString(deckId) + "/cards/" + Integer.toString(cardId) + "/attributes";
 
         setUpConnection(url,3,deckId,cardId);
 
     }
 
     public void loadImages(int deckId, int cardId){
-        String url = basicUrl + Integer.toString(deckId) + "cards" + Integer.toString(cardId) + "images";
+        String url = basicUrl + Integer.toString(deckId) + "/cards/" + Integer.toString(cardId) + "/images";
         setUpConnection(url,5,deckId,cardId);
+
+        //textView.setText(extraDecks.get(getIndexFromId(deckToDownload)).toString());
     }
 
 
@@ -317,7 +319,7 @@ public class Categories extends AppCompatActivity {
         JsonArrayRequest jsonArrayRequest = null;
         JsonObjectRequest jsObjRequest=null;
 
-        if(uid==0){
+        if(uid!=1){
             jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
                 @Override
                 public void onResponse(JSONArray response) {
@@ -365,7 +367,7 @@ public class Categories extends AppCompatActivity {
                     //maybe we need admin:password here
                     headers.put("Content-Type", "application/json");
                     String creds = String.format("%s:%s","admin","c3R1ZGVudDphZm1iYQ==");
-                    String auth = "Basic " + Base64.encodeToString(creds.getBytes(),Base64.DEFAULT);
+                    String auth = "Basic c3R1ZGVudDphZm1iYQ==";
                     headers.put("Authorization",auth);
 
                     return headers;
@@ -375,7 +377,7 @@ public class Categories extends AppCompatActivity {
 
 
         //test
-        if(uid==0){
+        if(uid!=1){
             queue.add(jsonArrayRequest);
 
         }else {
@@ -423,6 +425,8 @@ public class Categories extends AppCompatActivity {
                     c.setId(response.getJSONObject(i).getInt("id"));
                     c.setName(response.getJSONObject(i).getString("name"));
 
+
+
                     extraDecks.get(getIndexFromId(deckToDownload)).getCards().add(c);
 
 
@@ -432,12 +436,13 @@ public class Categories extends AppCompatActivity {
                     }
 
                 }
-                
+
                 loadProperties(deckToDownload,extraDecks.get(getIndexFromId(deckToDownload)).getCards().get(0).getId());
 
                 for(Card c:extraDecks.get(getIndexFromId(deckToDownload)).getCards()){
-                    loadAttributes(deckToDownload,c.getId());
-                    loadImages(deckToDownload,c.getId());
+                    loadAttributes(deckToDownload,cardId);
+                    loadImages(deckToDownload,cardId);
+
                 }
 
                 break;
@@ -473,7 +478,14 @@ public class Categories extends AppCompatActivity {
                 for(int i=0;i<response.length();i++){
 
                     try {
-                    extraDecks.get(getIndexFromId(deckToDownload)).getCards().get(i).getValues().add(new Value(response.getJSONObject(i).getDouble("value"),i));
+
+                        Value v = new Value();
+                        v.setPropertyId(i);
+                        v.setValue(response.getJSONObject(i).getDouble("value"));
+                        textView.setText(String.valueOf(response.getJSONObject(i).getDouble("value")));
+
+
+                    extraDecks.get(getIndexFromId(deckToDownload)).getCards().get(getIndexFromIdCards(cardId,extraDecks.get(getIndexFromId(deckToDownload)).getCards())).getValues().add(v);
                     }catch (JSONException jsone){
                         jsone.printStackTrace();
                     }
@@ -489,7 +501,7 @@ public class Categories extends AppCompatActivity {
                         String str=response.getJSONObject(i).getString("image");
                         int index=str.lastIndexOf('/');
                         str= str.substring(index+1,str.length());
-                        extraDecks.get(getIndexFromId(deckToDownload)).getCards().get(i).getImages().add(new Image(i,str));
+                        extraDecks.get(getIndexFromId(deckToDownload)).getCards().get(getIndexFromIdCards(cardId,extraDecks.get(getIndexFromId(deckToDownload)).getCards())).getImages().add(new Image(i,str));
                     }catch (JSONException jsone){
                         jsone.printStackTrace();
                     }
@@ -511,7 +523,10 @@ public class Categories extends AppCompatActivity {
 
                 case 1:
 
+
                     extraDecks.get(getIndexFromId(deckId)).setDescription(obj.getString("description"));
+
+                    //textView.setText(obj.getString("description"));
                     extraDecks.get(getIndexFromId(deckId)).setImage(obj.getString("image"));
 
                     loadCards(deckId);
@@ -549,8 +564,9 @@ public class Categories extends AppCompatActivity {
             if(c.getId()==uid){
                 return i;
             }
+            i++;
         }
-        return -1;
+        return 1;
     }
 
     public void initialize(View v){

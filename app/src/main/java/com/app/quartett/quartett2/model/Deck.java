@@ -65,7 +65,7 @@ public class Deck {
         this.description = description;
     }
 
-    public List<Card> getCards() {
+    public ArrayList<Card> getCards() {
         return cards;
     }
 
@@ -73,7 +73,7 @@ public class Deck {
         this.cards = cards;
     }
 
-    public List<Property> getProperties() {
+    public ArrayList<Property> getProperties() {
         return properties;
     }
 

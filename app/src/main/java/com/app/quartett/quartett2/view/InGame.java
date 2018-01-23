@@ -482,6 +482,8 @@ public class InGame extends AppCompatActivity{
         cardPictureInGameImageView.setImageDrawable(res);
 
 
+
+
         if(deck.getProperties().get(0).getCompare()==1){
             attr1ImageView.setImageResource(R.drawable.uparrow);
         }else{
@@ -507,11 +509,14 @@ public class InGame extends AppCompatActivity{
         }else{
             attr5ImageView.setImageResource(R.drawable.downarrow);
         }
-        if(deck.getProperties().get(5).getCompare()==1){
-            attr6ImageView.setImageResource(R.drawable.uparrow);
-        }else{
-            attr6ImageView.setImageResource(R.drawable.downarrow);
+        if(deck.getProperties().size()>5){
+            if(deck.getProperties().get(5).getCompare()==1){
+                attr6ImageView.setImageResource(R.drawable.uparrow);
+            }else{
+                attr6ImageView.setImageResource(R.drawable.downarrow);
+            }
         }
+
 
 
 
