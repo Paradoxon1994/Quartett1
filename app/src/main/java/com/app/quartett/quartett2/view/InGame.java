@@ -472,8 +472,12 @@ public class InGame extends AppCompatActivity{
 
         //attr1OverviewTextView.setText(actualPicture);
         nameTextView.setText(card.getName());
+        String uri="";
+        if(playerCard.getImages().get(0)!=null){
+            uri = "@drawable/"+ deck.getName().toLowerCase()+playerCard.getImages().get(0).getFilename();
 
-        String uri = "@drawable/"+ deck.getName().toLowerCase()+playerCard.getImages().get(0).getFilename();
+        }
+
         uri= uri.substring(0,uri.lastIndexOf("."));
         int imageRes = getResources().getIdentifier(uri,null,getPackageName());
 
@@ -517,7 +521,11 @@ public class InGame extends AppCompatActivity{
             }
         }
 
+        if(MainActivity.getLoadedDeck().getProperties().size()<=5){
+            attr6TextView.setVisibility(View.INVISIBLE);
+            attr6ValueTextView.setText("");
 
+        }
 
 
         //setting up right properties with values
@@ -525,11 +533,14 @@ public class InGame extends AppCompatActivity{
         NumberFormat nf = new DecimalFormat("##.##");
         for (Property p : MainActivity.getLoadedDeck().getProperties()) {
             attributeTextViews.get(i).setText(p.getText());
+
             for (Value v:card.getValues()) {
                 if(v.getPropertyId() == p.getId()){
                     attributeValueTextViews.get(i).setText(String.valueOf(nf.format(v.getValue())));
                     attributeValueTextViews.get(i).append(" " + p.getUnit());
                 }
+
+
             }
             i++;
         }

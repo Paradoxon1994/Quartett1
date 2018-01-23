@@ -202,6 +202,10 @@ public class Tab2CardOverview extends Fragment{
             }
             i++;
         }
+        if(MainActivity.getLoadedDeck().getProperties().size()<=5){
+            attr6OverviewTextView.setText("");
+            attr6ValueOverviewTextView.setText("");
+        }
     }
 
 
