@@ -155,7 +155,7 @@ public class Categories extends AppCompatActivity {
                             extraDecks.get(getIndexFromId(deckToDownload)).setDownloaded(true);
                             loadDeck(deckToDownload);
                             loadImage();
-                            textView.setText(extraDecks.get(getIndexFromId(deckToDownload)).toString());
+
 
                         }
                     });
@@ -163,6 +163,7 @@ public class Categories extends AppCompatActivity {
 
                     AlertDialog alert1 = builder.create();
                     alert1.show();
+
 
                 }
             }
@@ -306,7 +307,7 @@ public class Categories extends AppCompatActivity {
         String url = basicUrl + Integer.toString(deckId) + "/cards/" + Integer.toString(cardId) + "/images";
         setUpConnection(url,5,deckId,cardId);
 
-        //textView.setText(extraDecks.get(getIndexFromId(deckToDownload)).toString());
+
     }
 
 
@@ -440,8 +441,8 @@ public class Categories extends AppCompatActivity {
                 loadProperties(deckToDownload,extraDecks.get(getIndexFromId(deckToDownload)).getCards().get(0).getId());
 
                 for(Card c:extraDecks.get(getIndexFromId(deckToDownload)).getCards()){
-                    loadAttributes(deckToDownload,cardId);
-                    loadImages(deckToDownload,cardId);
+                    loadAttributes(deckToDownload,c.getId());
+                    loadImages(deckToDownload,c.getId());
 
                 }
 
@@ -482,7 +483,7 @@ public class Categories extends AppCompatActivity {
                         Value v = new Value();
                         v.setPropertyId(i);
                         v.setValue(response.getJSONObject(i).getDouble("value"));
-                        textView.setText(String.valueOf(response.getJSONObject(i).getDouble("value")));
+
 
 
                     extraDecks.get(getIndexFromId(deckToDownload)).getCards().get(getIndexFromIdCards(cardId,extraDecks.get(getIndexFromId(deckToDownload)).getCards())).getValues().add(v);
@@ -506,6 +507,7 @@ public class Categories extends AppCompatActivity {
                         jsone.printStackTrace();
                     }
                 }
+                textView.setText(extraDecks.get(getIndexFromId(deckToDownload)).toString());
 
                 break;
         }
@@ -526,7 +528,7 @@ public class Categories extends AppCompatActivity {
 
                     extraDecks.get(getIndexFromId(deckId)).setDescription(obj.getString("description"));
 
-                    //textView.setText(obj.getString("description"));
+
                     extraDecks.get(getIndexFromId(deckId)).setImage(obj.getString("image"));
 
                     loadCards(deckId);
@@ -555,7 +557,7 @@ public class Categories extends AppCompatActivity {
             i++;
         }
 
-        return -1;
+        return 5;
     }
 
     public int getIndexFromIdCards(int uid,ArrayList<Card> cards){
