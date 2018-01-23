@@ -179,6 +179,10 @@ public class Tab2CardOverview extends Fragment{
         int n = new Random().nextInt(numberOfCards);
         Card c = MainActivity.getLoadedDeck().getCards().get(n);
         currentPosition = n;
+        actualPicture = Categories.getSelectedDeck();
+        actualPicture += n;
+        cardPictureImageView.setImageResource(getDrawable(getContext(), actualPicture));
+        firstNumberTextView.setText(String.valueOf(currentPosition));
         loadCard(c);
     }
 
