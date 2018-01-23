@@ -3,6 +3,8 @@ package com.app.quartett.quartett2.view;
 
 import android.content.Context;
 
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 
 import com.app.quartett.quartett2.MainActivity;
 import com.app.quartett.quartett2.R;
+import com.app.quartett.quartett2.ShakeDetector;
 import com.app.quartett.quartett2.model.Card;
 import com.app.quartett.quartett2.model.Property;
 import com.app.quartett.quartett2.model.Value;
@@ -23,6 +26,7 @@ import junit.framework.Assert;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Tab2CardOverview extends Fragment{
 
@@ -53,12 +57,34 @@ public class Tab2CardOverview extends Fragment{
 
     public String actualPicture;
 
+    //shake-stuff
+    private SensorManager mSensorManager;
+    private Sensor mAccelerometer;
+    private ShakeDetector mShakeDetector;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+
+        // ShakeDetector initialization
+        mSensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
+        mAccelerometer = mSensorManager
+                .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mShakeDetector = new ShakeDetector();
+        mShakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
+
+            @Override
+            public void onShake(int count) {
+				/*
+				 * The following method, "handleShakeEvent(count):" is a stub //
+				 * method you would use to setup whatever you want done once the
+				 * device has been shook.
+				 */
+                handleShakeEvent(count);
+            }
+        });
 
         //TODO: change
         actualPicture = "bikes";
@@ -105,10 +131,21 @@ public class Tab2CardOverview extends Fragment{
             });
     }
 
+
+    @Override
+    public void onPause() {
+        // Add the following line to unregister the Sensor Manager onPause
+        mSensorManager.unregisterListener(mShakeDetector);
+        super.onPause();
+    }
+
     @Override
     public void onResume(){
 
         super.onResume();
+
+        // Add the following line to register the Session Manager Listener onResume
+        mSensorManager.registerListener(mShakeDetector, mAccelerometer,	SensorManager.SENSOR_DELAY_UI);
 
         if (Categories.switchedDecks) {
             Categories.switchedDecks = false;
@@ -122,6 +159,13 @@ public class Tab2CardOverview extends Fragment{
         }
     }
 
+
+    private void handleShakeEvent(int count) {
+        int numberOfCards = MainActivity.getLoadedDeck().getCards().size();
+        int n = new Random().nextInt(numberOfCards);
+        Card c = MainActivity.getLoadedDeck().getCards().get(n);
+        loadCard(c);
+    }
 
     public void loadCard(Card card) {
 
