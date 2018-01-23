@@ -62,6 +62,9 @@ public class Tab2CardOverview extends Fragment{
     private Sensor mAccelerometer;
     private ShakeDetector mShakeDetector;
 
+    //cardoverview number
+    private int currentPosition;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,8 +73,13 @@ public class Tab2CardOverview extends Fragment{
 
         // ShakeDetector initialization
         mSensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
-        mAccelerometer = mSensorManager
-                .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        try{
+            mAccelerometer = mSensorManager
+                    .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
         mShakeDetector = new ShakeDetector();
         mShakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
 
@@ -170,6 +178,7 @@ public class Tab2CardOverview extends Fragment{
         int numberOfCards = MainActivity.getLoadedDeck().getCards().size();
         int n = new Random().nextInt(numberOfCards);
         Card c = MainActivity.getLoadedDeck().getCards().get(n);
+        currentPosition = n;
         loadCard(c);
     }
 
@@ -194,7 +203,7 @@ public class Tab2CardOverview extends Fragment{
 
     private void nextCard() {
 
-        int currentPosition = Integer.parseInt(firstNumberTextView.getText().toString());
+        currentPosition = Integer.parseInt(firstNumberTextView.getText().toString());
         int nextPosition;
         if(currentPosition == MainActivity.getLoadedDeck().getCards().size()) {
             nextPosition = 1;
@@ -213,7 +222,7 @@ public class Tab2CardOverview extends Fragment{
 
     private void previousCard() {
 
-        int currentPosition = Integer.parseInt(firstNumberTextView.getText().toString());
+        currentPosition = Integer.parseInt(firstNumberTextView.getText().toString());
         int nextPosition;
         if(currentPosition == 1) {
             nextPosition = MainActivity.getLoadedDeck().getCards().size();
