@@ -65,6 +65,8 @@ public class Card {
     }
 
     public Card() {
+        images = new ArrayList<>();
+        values = new ArrayList<>();
 
     }
 }

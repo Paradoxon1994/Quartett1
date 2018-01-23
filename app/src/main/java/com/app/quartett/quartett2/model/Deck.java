@@ -14,6 +14,17 @@ public class Deck {
     private String description;
     private ArrayList<Card> cards;
     private ArrayList<Property> properties;
+    private int id;
+    private boolean downloaded;
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public Deck(String name, String description, ArrayList<Card> cards, ArrayList<Property> properties) {
         this.name = name;
@@ -33,6 +44,8 @@ public class Deck {
     }
 
     public Deck (){
+        cards= new ArrayList<>();
+        properties = new ArrayList<>();
 
     }
 
@@ -67,4 +80,11 @@ public class Deck {
     public void setProperties(ArrayList<Property> properties) {
         this.properties = properties;
     }
+    public void setId(int id) {this.id=id; }
+    public int getId(){ return id;}
+
+    public void setDownloaded(boolean d){
+        downloaded=d;
+    }
+    public boolean isDownloaded(){return downloaded;}
 }

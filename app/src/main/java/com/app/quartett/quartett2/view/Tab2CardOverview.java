@@ -113,11 +113,16 @@ public class Tab2CardOverview extends Fragment{
         if (Categories.switchedDecks) {
             Categories.switchedDecks = false;
             firstNumberTextView.setText("1");
-            loadCard(MainActivity.getLoadedDeck().getCards().get(0));
-            if (Categories.getSelectedDeck() == "bikes") {
+            if(MainActivity.getLoadedDeck().getCards().size()!= 0 ){
+                loadCard(MainActivity.getLoadedDeck().getCards().get(0));
+            }
+
+            if (Categories.getSelectedDeck() .equals("bikes")) {
                 cardPictureImageView.setImageResource(R.drawable.bikes1);
-            } else {
+            } else if(Categories.getSelectedDeck().equals("tuning") ) {
                 cardPictureImageView.setImageResource(R.drawable.tuning1);
+            }else{
+                cardPictureImageView.setImageResource(R.drawable.bettsport1);
             }
         }
     }

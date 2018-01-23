@@ -2,6 +2,9 @@ package com.app.quartett.quartett2.view;
 
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +15,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.app.quartett.quartett2.R;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class Tab1MainMenu extends Fragment{
 
@@ -66,8 +74,11 @@ public class Tab1MainMenu extends Fragment{
     public static void switchTheme(){
         if(Categories.getSelectedDeck() == "bikes"){
             themeImageView.setImageResource(R.drawable.bikes1);
-        } else {
+        } else if(Categories.getSelectedDeck() == "tuning") {
             themeImageView.setImageResource(R.drawable.tuning1);
+        }else{
+            themeImageView.setImageResource(R.drawable.bettsport1);
+
         }
     }
 

@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
@@ -60,7 +61,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="32dp"
                     android:clickable="true"
-                    android:src="@drawable/tuning1" />
+                     />
 
                 <ImageView
                     android:id="@+id/theme4ImageView"
@@ -70,7 +71,27 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="32dp"
                     android:clickable="true"
-                    android:src="@drawable/tuning1" />
+                     />
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/floatingActionButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/theme3ImageView"
+                    android:layout_toEndOf="@+id/notImportant"
+                    android:clickable="true"
+                    app:backgroundTint="@android:color/black"
+                    app:srcCompat="@android:drawable/ic_input_add"
+                    tools:layout_editor_absoluteX="319dp"
+                    tools:layout_editor_absoluteY="384dp" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/theme3ImageView"
+                    android:layout_below="@+id/theme3ImageView"
+                    android:text="TextView" />
 
             </RelativeLayout>
         </LinearLayout>
