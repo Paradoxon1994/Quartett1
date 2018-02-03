@@ -30,6 +30,7 @@ import java.io.File;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 
@@ -68,6 +69,9 @@ public class InGame extends AppCompatActivity{
 
     private int playerSelection;
 
+    private List<Double> propertyAverage;
+    private int numberOfProperties;
+
 
     Card playerCard;
     Card kiCard;
@@ -91,6 +95,18 @@ public class InGame extends AppCompatActivity{
 
         //initialization
         initialization(findViewById(android.R.id.content));
+
+
+        //if(difficulty == difficult){
+        /*numberOfProperties = MainActivity.getLoadedDeck().getProperties().size();
+        for(int i=0; i<numberOfProperties; i++){
+            propertyAverage.add(MainActivity.getLoadedDeck().getCards().get(1).getValues().get(i).getValue());
+        }
+            for (Card c:MainActivity.getLoadedDeck().getCards()) {
+
+            }*/
+
+        //}
 
 
 
@@ -351,26 +367,15 @@ public class InGame extends AppCompatActivity{
             } else {
                 //TODO: ki difficulty stuff
 
-                //simple ki selection for testing(maybe easy setting because random):
-
-                Random rand = new Random();
-                int n = rand.nextInt(kiCard.getValues().size() - 1);
-
-                kiValue = kiCard.getValues().get(n);
-
-                playerValue = playerCard.getValues().get(n);
-
-                property = deck.getProperties().get(kiValue.getPropertyId());
-
-                //here
-
+                difficultyEasy();
+                //difficultyMedium();
+                //difficultyHard();
                 endOfRoundStuff();
-
-
             }
 
 
-            playersTurn = !playersTurn;
+            //determine who is next
+
 
 
 
@@ -393,6 +398,34 @@ public class InGame extends AppCompatActivity{
 
     }
 
+    private void difficultyHard() {
+
+    }
+
+    private void difficultyMedium() {
+        Random rand = new Random();
+        int n = rand.nextInt(kiCard.getValues().size() - 1);
+        kiValue = kiCard.getValues().get(n);
+        playerValue = playerCard.getValues().get(n);
+        property = deck.getProperties().get(kiValue.getPropertyId());
+        //determine who chooses property
+        if(playerValue.getValue()>kiValue.getValue()){
+            playersTurn = true;
+        } else {
+            playersTurn = false;
+        }
+    }
+
+    //if difficulty is set to easy
+    private void difficultyEasy() {
+        Random rand = new Random();
+        int n = rand.nextInt(kiCard.getValues().size() - 1);
+        kiValue = kiCard.getValues().get(n);
+        playerValue = playerCard.getValues().get(n);
+        property = deck.getProperties().get(kiValue.getPropertyId());
+        //determine who chooses property
+        playersTurn = !playersTurn;
+    }
 
 
     private void endOfRoundStuff() {
@@ -417,7 +450,6 @@ public class InGame extends AppCompatActivity{
         if(playerValue.getValue()==kiValue.getValue()){
             player.addCard(player.removeCard());
             ki.addCard(ki.removeCard());
-
             showEndOfRoundDialog("DRAW!");
 
         }
@@ -430,7 +462,6 @@ public class InGame extends AppCompatActivity{
         }else if(!playerWonRound){
             ki.addCard(player.removeCard());
             ki.addCard(ki.removeCard());
-
             showEndOfRoundDialog("YOU LOST!");
         }
 
