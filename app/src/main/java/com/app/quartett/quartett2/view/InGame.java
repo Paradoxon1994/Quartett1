@@ -141,6 +141,8 @@ public class InGame extends AppCompatActivity{
             }
         });
 
+
+
         //TODO: choose another attribute and enable buttons
 
         attr1TextView.setOnClickListener(new View.OnClickListener() {

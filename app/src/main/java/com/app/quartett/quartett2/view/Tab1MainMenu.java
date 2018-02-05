@@ -55,6 +55,8 @@ public class Tab1MainMenu extends Fragment{
 
         super.onStart();
 
+
+
         categories.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

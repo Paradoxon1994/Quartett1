@@ -66,7 +66,7 @@ public class Categories extends AppCompatActivity {
     //switchedDeck
     public static boolean switchedDecks = false;
 
-    private ArrayList<Deck> extraDecks = new ArrayList<>();
+    private ArrayList<Deck> extraDecks;
 
 
     String basicUrl =  "http://quartett.af-mba.dbis.info/decks/";
@@ -76,6 +76,7 @@ public class Categories extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        extraDecks=new ArrayList<>();
         setContentView(R.layout.categories);
 
         //initialization
@@ -86,6 +87,7 @@ public class Categories extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
 
         theme1ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,9 +114,9 @@ public class Categories extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 selectedDeck = "bettsport";
-
-                MainActivity.setLoadedDeck(extraDecks.get(getIndexFromId(deckToDownload)));
-
+                if(!MainActivity.getLoadedDeck().getName().equals("Bettsport")&&extraDecks.size()!=0) {
+                    MainActivity.setLoadedDeck(extraDecks.get(getIndexFromId(deckToDownload)));
+                }
                 Tab1MainMenu.switchTheme();
                 switchedDecks = true;
                 finish();
@@ -134,11 +136,14 @@ public class Categories extends AppCompatActivity {
 
                 if(extraDecks.size()!=0) {
 
-                    CharSequence names [] = new CharSequence[extraDecks.size()];
+                    CharSequence names [] = new CharSequence[1];
                     int i =0;
                     for(Deck d : extraDecks){
 
-                        names[i] = extraDecks.get(i).getName() + " . "+ extraDecks.get(i).getId();
+                        if(!extraDecks.get(i).getName().equals("Tuning") && !extraDecks.get(i).getName().equals("Bikes")  ){
+                            names[i] = extraDecks.get(i).getName() + " . "+ extraDecks.get(i).getId();
+                        }
+
 
                             i++;
 
@@ -166,17 +171,19 @@ public class Categories extends AppCompatActivity {
 
 
                 }
+
+
             }
         });
+
+        if(MainActivity.getLoadedDeck().getName().equals("Bettsport")){
+            loadImage();
+        }
 
     }
 
     private void loadImage(){
-        if(extraDecks.get(getIndexFromId(deckToDownload)).getName().equals("Bettsport")){
-            theme3ImageView.setImageResource(R.drawable.bettsport1);
-        }
-
-
+                theme3ImageView.setImageResource(R.drawable.bettsport1);
 
     }
 

@@ -54,4 +54,11 @@ public class Game {
         this.maxRounds = maxRounds;
         this.roundTime = roundTime;
     }
+
+
+
+
+
+
+
 }
