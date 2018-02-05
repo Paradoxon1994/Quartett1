@@ -45,9 +45,9 @@ public class MyPreferenceFragment extends PreferenceFragment
         if(difficultyPreference==null){
            return 2;
         }else{
-            if(difficultyPreference.getValue().equals("EASY")) {
+            if(difficultyPreference.getValue().equals("1")) {
                 return 1;
-            } else if (difficultyPreference.getValue().equals("MEDIUM")){
+            } else if (difficultyPreference.getValue().equals("2")){
                 return 2;
             } else {
                 return 3;
