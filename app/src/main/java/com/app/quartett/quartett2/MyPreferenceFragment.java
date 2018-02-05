@@ -50,7 +50,7 @@ public class MyPreferenceFragment extends PreferenceFragment
             } else if (difficultyPreference.getValue().equals("MEDIUM")){
                 return 2;
             } else {
-                return 2;
+                return 3;
             }
 
         }

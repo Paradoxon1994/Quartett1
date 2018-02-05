@@ -100,8 +100,7 @@ public class InGame extends AppCompatActivity{
         initialization(findViewById(android.R.id.content));
 
 
-        //if(difficulty == difficult){
-                //}
+
 
 
 
@@ -316,7 +315,6 @@ public class InGame extends AppCompatActivity{
     public void startRound(){
 
 
-        //while (game.getRoundCounter()<game.getMaxRounds()&& player.getCards().size()!=0 &&ki.getCards().size()!=0){
 
         int numberOfProperties = MainActivity.getLoadedDeck().getProperties().size();
         for(int i=0; i < numberOfProperties; i++){
@@ -400,6 +398,7 @@ public class InGame extends AppCompatActivity{
     }
     //hard difficulty
     private void difficultyHard() {
+
         Random rand = new Random();
         int n = 0;
 
@@ -424,16 +423,13 @@ public class InGame extends AppCompatActivity{
         }
             property = deck.getProperties().get(kiValue.getPropertyId());
 
-            if (playerValue.getValue() > kiValue.getValue()) {
-                playersTurn = true;
-            } else {
-                playersTurn = false;
-            }
+
 
     }
 
     //medium difficulty
     private void difficultyMedium() {
+
         Random rand = new Random();
         int n = 0;
         int prob = rand.nextInt(100);
@@ -455,7 +451,7 @@ public class InGame extends AppCompatActivity{
         }
             property = deck.getProperties().get(kiValue.getPropertyId());
             //determine who chooses property
-            playersTurn = !playersTurn;
+
 
     }
 
@@ -482,7 +478,7 @@ public class InGame extends AppCompatActivity{
         }
             property = deck.getProperties().get(kiValue.getPropertyId());
             //determine who chooses property
-            playersTurn = true;
+
 
     }
 
@@ -523,6 +519,15 @@ public class InGame extends AppCompatActivity{
             ki.addCard(ki.removeCard());
             showEndOfRoundDialog("YOU LOST!");
         }
+
+        if(!playerWonRound){
+            playersTurn=false;
+        }else {
+            playersTurn= true;
+        }
+
+
+
 
     }
 
