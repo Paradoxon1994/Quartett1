@@ -26,6 +26,8 @@ import com.app.quartett.quartett2.model.Value;
 
 import junit.framework.Assert;
 
+import org.w3c.dom.Text;
+
 import java.io.File;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -69,7 +71,6 @@ public class InGame extends AppCompatActivity{
 
     private int playerSelection;
 
-    private List<Double> propertyAverage;
     private int numberOfProperties;
 
 
@@ -83,6 +84,8 @@ public class InGame extends AppCompatActivity{
     int roundsWonCounter=0;
     Boolean playerWonRound=false;
     Boolean playersTurn=true;
+
+    public TextView roundText;
 
 
 
@@ -98,15 +101,7 @@ public class InGame extends AppCompatActivity{
 
 
         //if(difficulty == difficult){
-        /*numberOfProperties = MainActivity.getLoadedDeck().getProperties().size();
-        for(int i=0; i<numberOfProperties; i++){
-            propertyAverage.add(MainActivity.getLoadedDeck().getCards().get(1).getValues().get(i).getValue());
-        }
-            for (Card c:MainActivity.getLoadedDeck().getCards()) {
-
-            }*/
-
-        //}
+                //}
 
 
 
@@ -303,19 +298,13 @@ public class InGame extends AppCompatActivity{
         });
 
 
-
-
-
-
-
-
     }
 
     public void onStart(){
         super.onStart();
         //get stuff for starting game
 
-
+        roundText.setText(Integer.toString(game.getDifficulty()));
         startRound();
 
     }
@@ -323,7 +312,8 @@ public class InGame extends AppCompatActivity{
 
 
     public void startRound(){
-        
+
+
         //while (game.getRoundCounter()<game.getMaxRounds()&& player.getCards().size()!=0 &&ki.getCards().size()!=0){
 
         int numberOfProperties = MainActivity.getLoadedDeck().getProperties().size();
@@ -367,9 +357,18 @@ public class InGame extends AppCompatActivity{
             } else {
                 //TODO: ki difficulty stuff
 
-                difficultyEasy();
-                //difficultyMedium();
-                //difficultyHard();
+
+                switch (game.getDifficulty()){
+                    case 1:
+                        difficultyEasy();
+                        break;
+                    case 2:
+                        difficultyMedium();
+                        break;
+                    case 3:
+                        difficultyHard();
+                        break;
+                }
                 endOfRoundStuff();
             }
 
@@ -397,18 +396,13 @@ public class InGame extends AppCompatActivity{
         //returning if player won the game or not
 
     }
-
+    //hard difficulty
     private void difficultyHard() {
-
-    }
-
-    private void difficultyMedium() {
         Random rand = new Random();
         int n = rand.nextInt(kiCard.getValues().size() - 1);
         kiValue = kiCard.getValues().get(n);
         playerValue = playerCard.getValues().get(n);
         property = deck.getProperties().get(kiValue.getPropertyId());
-        //determine who chooses property
         if(playerValue.getValue()>kiValue.getValue()){
             playersTurn = true;
         } else {
@@ -416,8 +410,8 @@ public class InGame extends AppCompatActivity{
         }
     }
 
-    //if difficulty is set to easy
-    private void difficultyEasy() {
+    //medium difficulty
+    private void difficultyMedium() {
         Random rand = new Random();
         int n = rand.nextInt(kiCard.getValues().size() - 1);
         kiValue = kiCard.getValues().get(n);
@@ -425,6 +419,17 @@ public class InGame extends AppCompatActivity{
         property = deck.getProperties().get(kiValue.getPropertyId());
         //determine who chooses property
         playersTurn = !playersTurn;
+    }
+
+    //easy difficulty
+    private void difficultyEasy() {
+        Random rand = new Random();
+        int n = rand.nextInt(kiCard.getValues().size() - 1);
+        kiValue = kiCard.getValues().get(n);
+        playerValue = playerCard.getValues().get(n);
+        property = deck.getProperties().get(kiValue.getPropertyId());
+        //determine who chooses property
+        playersTurn = true;
     }
 
 
@@ -653,6 +658,8 @@ public class InGame extends AppCompatActivity{
 
         //continue
         continueButton = (ImageButton) v.getRootView().findViewById(R.id.continueButton);
+
+        roundText = (TextView) v.getRootView().findViewById(R.id.roundText);
 
 
 

@@ -16,6 +16,8 @@ import android.widget.TextView;
 
 import com.app.quartett.quartett2.R;
 
+import org.w3c.dom.Text;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -82,6 +84,9 @@ public class Tab1MainMenu extends Fragment{
         }
     }
 
+    public void ajustStats(int NumberOfGames, int gamesWon, int cards){
+    }
+
 
 
     private void initialize(View v) {
@@ -93,6 +98,10 @@ public class Tab1MainMenu extends Fragment{
         categories = (Button) v.getRootView().findViewById(R.id.categories);
         newGame = (Button) v.getRootView().findViewById(R.id.newGame);
 
+        //stats
+        numberOfGamesNumberTextView = (TextView) v.getRootView().findViewById(R.id.numberOfGamesNumberTextView);
+        wonNumberTextView = (TextView) v.getRootView().findViewById(R.id.wonNumberTextView);
+        averageCardsNumberTextView = (TextView) v.getRootView().findViewById(R.id.averageCardsNumberTextView);
     }
 
 }

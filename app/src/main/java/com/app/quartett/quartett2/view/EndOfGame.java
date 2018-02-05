@@ -52,6 +52,17 @@ public class EndOfGame extends AppCompatActivity{
             }
         });
 
+        shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "Check this out! I won a game in the awesome APPlication: Quartett");
+                sendIntent.setType("text/plain");
+                startActivity(sendIntent);
+            }
+        });
+
 
 
     }
