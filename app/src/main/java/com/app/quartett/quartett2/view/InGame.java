@@ -328,7 +328,7 @@ public class InGame extends AppCompatActivity{
 
 
             roundCounter++;
-            numberOfRoundTextView.setText(Integer.toString(roundCounter));
+            numberOfRoundTextView.setText("R:" + Integer.toString(roundCounter));
             cardsLeftCounter.setText(Integer.toString(player.getCards().size()));
             //numberOfRoundTextView.setText( Integer.toString(roundCounter)+ " Cards left:  " + player.getCards().size());
             continueButton.setEnabled(false);
@@ -357,7 +357,7 @@ public class InGame extends AppCompatActivity{
 
 
             } else {
-                //TODO: ki difficulty stuff
+
 
 
                 switch (game.getDifficulty()){
@@ -380,7 +380,7 @@ public class InGame extends AppCompatActivity{
 
 
 
-            //}
+
             //TODO: add stats to player profile with same name, possibly create stats file
 
         }else{
@@ -401,37 +401,89 @@ public class InGame extends AppCompatActivity{
     //hard difficulty
     private void difficultyHard() {
         Random rand = new Random();
-        int n = rand.nextInt(kiCard.getValues().size() - 1);
+        int n = 0;
+
+        int prob = rand.nextInt(100);
         kiValue = kiCard.getValues().get(n);
         playerValue = playerCard.getValues().get(n);
-        property = deck.getProperties().get(kiValue.getPropertyId());
-        if(playerValue.getValue()>kiValue.getValue()){
-            playersTurn = true;
+
+        if (prob > 80) {
+            while (playerValue.getValue() < kiValue.getValue() && n<kiCard.getValues().size()-1) {
+
+                n++;
+                kiValue = kiCard.getValues().get(n);
+                playerValue = playerCard.getValues().get(n);
+            }
         } else {
-            playersTurn = false;
+            while (playerValue.getValue() >= kiValue.getValue()  && n<kiCard.getValues().size()-1) {
+                n++;
+                kiValue = kiCard.getValues().get(n);
+                playerValue = playerCard.getValues().get(n);
+            }
+
         }
+            property = deck.getProperties().get(kiValue.getPropertyId());
+
+            if (playerValue.getValue() > kiValue.getValue()) {
+                playersTurn = true;
+            } else {
+                playersTurn = false;
+            }
+
     }
 
     //medium difficulty
     private void difficultyMedium() {
         Random rand = new Random();
-        int n = rand.nextInt(kiCard.getValues().size() - 1);
+        int n = 0;
+        int prob = rand.nextInt(100);
         kiValue = kiCard.getValues().get(n);
         playerValue = playerCard.getValues().get(n);
-        property = deck.getProperties().get(kiValue.getPropertyId());
-        //determine who chooses property
-        playersTurn = !playersTurn;
+
+        if (prob > 50) {
+            while (playerValue.getValue() < kiValue.getValue()&& n<kiCard.getValues().size()-1) {
+                n++;
+                kiValue = kiCard.getValues().get(n);
+                playerValue = playerCard.getValues().get(n);
+            }
+        } else {
+            while (playerValue.getValue() >= kiValue.getValue()&& n<kiCard.getValues().size()-1) {
+                n++;
+                kiValue = kiCard.getValues().get(n);
+                playerValue = playerCard.getValues().get(n);
+            }
+        }
+            property = deck.getProperties().get(kiValue.getPropertyId());
+            //determine who chooses property
+            playersTurn = !playersTurn;
+
     }
 
     //easy difficulty
     private void difficultyEasy() {
         Random rand = new Random();
-        int n = rand.nextInt(kiCard.getValues().size() - 1);
+        int n = 0;
+        int prob = rand.nextInt(100);
         kiValue = kiCard.getValues().get(n);
         playerValue = playerCard.getValues().get(n);
-        property = deck.getProperties().get(kiValue.getPropertyId());
-        //determine who chooses property
-        playersTurn = true;
+
+        if (prob > 15) {
+            while (playerValue.getValue() < kiValue.getValue()&& n<kiCard.getValues().size()-1) {
+                n++;
+                kiValue = kiCard.getValues().get(n);
+                playerValue = playerCard.getValues().get(n);
+            }
+        } else {
+            while (playerValue.getValue() >= kiValue.getValue()&& n<kiCard.getValues().size()-1) {
+                n++;
+                kiValue = kiCard.getValues().get(n);
+                playerValue = playerCard.getValues().get(n);
+            }
+        }
+            property = deck.getProperties().get(kiValue.getPropertyId());
+            //determine who chooses property
+            playersTurn = true;
+
     }
 
 
