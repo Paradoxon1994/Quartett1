@@ -116,13 +116,32 @@ public class Categories extends AppCompatActivity {
         theme3ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 selectedDeck = "bettsport";
                 if(!MainActivity.getLoadedDeck().getName().equals("Bettsport")&&extraDecks.size()!=0) {
+
                     MainActivity.setLoadedDeck(extraDecks.get(getIndexFromId(deckToDownload)));
+                    Tab1MainMenu.switchTheme();
+                    switchedDecks = true;
+                    finish();
+                }else {
+
+                    if (MainActivity.extraDeck != null) {
+                        MainActivity.setLoadedDeck(MainActivity.extraDeck);
+                        Tab1MainMenu.switchTheme();
+                        switchedDecks = true;
+                        finish();
+                    } else {
+                        AlertDialog.Builder builder1 = new AlertDialog.Builder(Categories.this);
+                        builder1.setMessage("Oops something went wrong, try downloading the deck again");
+
+                        AlertDialog alertboys = builder1.create();
+                        alertboys.show();
+
+                    }
                 }
-                Tab1MainMenu.switchTheme();
-                switchedDecks = true;
-                finish();
+
             }
         });
 
@@ -167,7 +186,7 @@ public class Categories extends AppCompatActivity {
 
                             loadImage();
 
-
+                            MainActivity.extraDeck=extraDecks.get(getIndexFromId(deckToDownload));
                         }
                     });
 
@@ -183,6 +202,9 @@ public class Categories extends AppCompatActivity {
         });
 
         if(MainActivity.getLoadedDeck().getName().equals("Bettsport")){
+            loadImage();
+        }else if(MainActivity.extraDeck!=null){
+            //i know its nonsense just trying sth
             loadImage();
         }
 

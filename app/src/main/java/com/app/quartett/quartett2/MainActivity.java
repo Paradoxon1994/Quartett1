@@ -50,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
     private static Deck loadedDeck;
 
+    public static Deck extraDeck;
+
     /**
      * The {@link ViewPager} that will host the section contents.
      */
