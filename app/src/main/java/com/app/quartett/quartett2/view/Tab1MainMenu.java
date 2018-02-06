@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.app.quartett.quartett2.MainActivity;
 import com.app.quartett.quartett2.R;
 
 import org.w3c.dom.Text;
@@ -73,6 +74,8 @@ public class Tab1MainMenu extends Fragment{
             }
         });
 
+        adjustStats();
+
     }
 
     public static void switchTheme(){
@@ -86,7 +89,11 @@ public class Tab1MainMenu extends Fragment{
         }
     }
 
-    public void ajustStats(int NumberOfGames, int gamesWon, int cards){
+    public void adjustStats(){
+        numberOfGamesNumberTextView.setText(String.valueOf(MainActivity.numberOfGames));
+        wonNumberTextView.setText(String.valueOf(MainActivity.numberOfGamesWon));
+        averageCardsNumberTextView.setText(String.valueOf(MainActivity.avgCards));
+
     }
 
 

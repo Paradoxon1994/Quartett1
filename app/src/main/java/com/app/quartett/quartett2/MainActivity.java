@@ -52,6 +52,14 @@ public class MainActivity extends AppCompatActivity {
 
     public static Deck extraDeck;
 
+    public static int numberOfGames=0;
+
+    public static int numberOfGamesWon=0;
+
+    public static int allCards=0;
+
+    public static int avgCards=0;
+
     /**
      * The {@link ViewPager} that will host the section contents.
      */

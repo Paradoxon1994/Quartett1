@@ -379,15 +379,28 @@ public class InGame extends AppCompatActivity{
 
 
 
-            //TODO: add stats to player profile with same name, possibly create stats file
+
 
         }else{
             if(player.getCards().size()>ki.getCards().size()){
                 showEndOfGameDialog("YOU WON");
+                MainActivity.numberOfGames++;
+                MainActivity.numberOfGamesWon++;
+
+                MainActivity.allCards+=player.getCards().size();
+                MainActivity.avgCards=MainActivity.allCards/MainActivity.numberOfGames;
+
+
             }else if(player.getCards().size()<ki.getCards().size()){
                 showEndOfGameDialog("YOU LOST");
+                MainActivity.numberOfGames++;
+                MainActivity.allCards+=player.getCards().size();
+                MainActivity.avgCards=MainActivity.allCards/MainActivity.numberOfGames;
             }else{
                 showEndOfGameDialog("DRAW");
+                MainActivity.numberOfGames++;
+                MainActivity.allCards+=player.getCards().size();
+                MainActivity.avgCards=MainActivity.allCards/MainActivity.numberOfGames;
             }
 
 
