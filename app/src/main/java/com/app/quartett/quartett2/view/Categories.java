@@ -15,6 +15,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
@@ -58,6 +59,8 @@ public class Categories extends AppCompatActivity {
 
     public TextView textView;
 
+    public ProgressBar progressBar;
+
     //selected Deck
     private static String selectedDeck;
 
@@ -88,7 +91,7 @@ public class Categories extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-
+        //progressBar.setVisibility(View.INVISIBLE);
         theme1ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -158,7 +161,9 @@ public class Categories extends AppCompatActivity {
                             deckToDownload=extraDecks.get(which).getId();
                             dialogInterface.cancel();
                             extraDecks.get(getIndexFromId(deckToDownload)).setDownloaded(true);
+
                             loadDeck(deckToDownload);
+
                             loadImage();
 
 
@@ -190,6 +195,7 @@ public class Categories extends AppCompatActivity {
     public Deck readDeck(String deckName) {
         Deck deck = new Deck();
         try {
+
 
             ArrayList<Card> cardArrayList = new ArrayList<>();
             ArrayList<Property> propertyArrayList = new ArrayList<>();
@@ -283,6 +289,7 @@ public class Categories extends AppCompatActivity {
     }
 
     public void loadDeck(int deckId){
+
         String url = basicUrl +Integer.toString(deckId);
         setUpConnection(url,1,deckId,-1);
 
@@ -514,7 +521,7 @@ public class Categories extends AppCompatActivity {
                         jsone.printStackTrace();
                     }
                 }
-                textView.setText(extraDecks.get(getIndexFromId(deckToDownload)).toString());
+                //textView.setText(extraDecks.get(getIndexFromId(deckToDownload)).toString());
 
                 break;
         }
@@ -587,6 +594,10 @@ public class Categories extends AppCompatActivity {
         floatingActionButton = (FloatingActionButton) v.getRootView().findViewById(R.id.floatingActionButton);
 
         textView = (TextView) v.getRootView().findViewById(R.id.textView);
+
+        progressBar = (ProgressBar) v.getRootView().findViewById(R.id.indeterminateBar);
+
+
 
 
     }

@@ -9,7 +9,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:hardwareAccelerated="false"
+
         android:largeHeap="true"
         android:label="MAL QUARTET"
         android:roundIcon="@mipmap/ic_launcher_round"
