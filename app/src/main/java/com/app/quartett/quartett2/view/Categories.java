@@ -161,8 +161,9 @@ public class Categories extends AppCompatActivity {
                             deckToDownload=extraDecks.get(which).getId();
                             dialogInterface.cancel();
                             extraDecks.get(getIndexFromId(deckToDownload)).setDownloaded(true);
-
+                            progressBar.setVisibility(View.VISIBLE);
                             loadDeck(deckToDownload);
+
 
                             loadImage();
 
@@ -320,6 +321,8 @@ public class Categories extends AppCompatActivity {
     public void loadImages(int deckId, int cardId){
         String url = basicUrl + Integer.toString(deckId) + "/cards/" + Integer.toString(cardId) + "/images";
         setUpConnection(url,5,deckId,cardId);
+
+        progressBar.setVisibility(View.GONE);
 
 
     }

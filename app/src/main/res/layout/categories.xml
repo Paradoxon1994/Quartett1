@@ -98,10 +98,12 @@
 
                 <ProgressBar
                     android:id="@+id/indeterminateBar"
+                    style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_above="@+id/theme3ImageView"
-                    android:layout_toEndOf="@+id/theme2ImageView" />
+                    android:layout_below="@+id/theme1ImageView"
+                    android:layout_centerHorizontal="true"
+                    android:visibility="gone" />
 
 
 
