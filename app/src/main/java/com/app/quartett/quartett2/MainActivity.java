@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.app.quartett.quartett2.model.Card;
 import com.app.quartett.quartett2.model.Deck;
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         super.onCreate(savedInstanceState);
+        
         setContentView(R.layout.activity_main);
 
         PreferenceManager.setDefaultValues(this, R.xml.fragment_preference,false);

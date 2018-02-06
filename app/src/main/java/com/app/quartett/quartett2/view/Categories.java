@@ -204,11 +204,15 @@ public class Categories extends AppCompatActivity {
         if(MainActivity.getLoadedDeck().getName().equals("Bettsport")){
             loadImage();
         }else if(MainActivity.extraDeck!=null){
-            //i know its nonsense just trying sth
+            //i know its nonsense just trying sth that actually helped but idk so its gonna stay for now xD
             loadImage();
         }
 
+
+
     }
+
+
 
     private void loadImage(){
                 theme3ImageView.setImageResource(R.drawable.bettsport1);
