@@ -90,6 +90,7 @@ public class Categories extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        loadDecks();
 
         //progressBar.setVisibility(View.INVISIBLE);
         theme1ImageView.setOnClickListener(new View.OnClickListener() {
