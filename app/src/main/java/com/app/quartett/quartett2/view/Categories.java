@@ -349,7 +349,7 @@ public class Categories extends AppCompatActivity {
         String url = basicUrl + Integer.toString(deckId) + "/cards/" + Integer.toString(cardId) + "/images";
         setUpConnection(url,5,deckId,cardId);
 
-        progressBar.setVisibility(View.GONE);
+
 
 
     }
@@ -484,9 +484,17 @@ public class Categories extends AppCompatActivity {
 
                 loadProperties(deckToDownload,extraDecks.get(getIndexFromId(deckToDownload)).getCards().get(0).getId());
 
+                int j =0;
+
                 for(Card c:extraDecks.get(getIndexFromId(deckToDownload)).getCards()){
+                    j++;
+
                     loadAttributes(deckToDownload,c.getId());
                     loadImages(deckToDownload,c.getId());
+
+                    if(j==extraDecks.get(getIndexFromId(deckToDownload)).getCards().size()-1){
+                        progressBar.setVisibility(View.GONE);
+                    }
 
                 }
 
