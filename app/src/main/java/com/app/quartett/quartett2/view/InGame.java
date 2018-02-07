@@ -85,7 +85,6 @@ public class InGame extends AppCompatActivity{
     Boolean playerWonRound=false;
     Boolean playersTurn=true;
 
-    public TextView roundText;
 
 
 
@@ -305,7 +304,6 @@ public class InGame extends AppCompatActivity{
         super.onStart();
         //get stuff for starting game
 
-        roundText.setText(Integer.toString(game.getDifficulty()));
         startRound();
 
     }
@@ -730,9 +728,6 @@ public class InGame extends AppCompatActivity{
 
         //continue
         continueButton = (ImageButton) v.getRootView().findViewById(R.id.continueButton);
-
-        roundText = (TextView) v.getRootView().findViewById(R.id.roundText);
-
 
 
     }

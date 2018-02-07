@@ -176,9 +176,9 @@ public class Tab2CardOverview extends Fragment{
 
     private void handleShakeEvent(int count) {
         int numberOfCards = MainActivity.getLoadedDeck().getCards().size();
-        int n = new Random().nextInt(numberOfCards);
+        int n = new Random().nextInt(numberOfCards-1);
         Card c = MainActivity.getLoadedDeck().getCards().get(n);
-        currentPosition = n;
+        currentPosition = n+1;
         actualPicture = Categories.getSelectedDeck();
         actualPicture += n;
         cardPictureImageView.setImageResource(getDrawable(getContext(), actualPicture));
