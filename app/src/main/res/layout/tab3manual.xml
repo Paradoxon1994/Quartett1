@@ -17,14 +17,41 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="none">
 
-            />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Willkommen zu unserer einzigartigen Quartett APPlication!
+In diesem Bereich finden Sie eine Anleitung, die Ihnen alles Wichtige erklärt!
+Es dreht sich hierbei um ein Kartenspiel, bei welchem Attribute von Karten miteinander verglichen werden und der Gewinner die Karten in sein Deck zugeteilt bekommt.
+Zuerst zu den technischen Details: Sie können das Theme im Hauptmenü im Bereich „Categories“ ändern, ein neues Spiel kann mit einem Click auf „New Game“ begonnen werden. Einstellungen können in der rechten Ecke des Bildschirms (3 Punkte und „Preferences“) geändert werden. Hier haben Sie die Möglichkeit die Anzahl der Runden und die Schwierigkeiten einzustellen.
+Nun folgt eine genaue Beschreibung des Spielablaufes:
+Nachdem ein Spiel gestartet worden ist, wählt der Benutzer, in diesem Fall Sie, ein Attribut aus, welches zum Vergleich verwendet werden soll. Dieses wird anschließend mit dem des Computer Gegners verglichen. Und der Gewinner wird identifiziert.
+Nun kommt es auf die eingestellt Schwierigkeit an. Falls Sie „Easy“ oder „Medium“ gewählt haben, ist die Reihenfolge abwechselnd. Bei „Hard“ wird ist jeweils der Gewinner wieder am Zug.
+Wir wünschen Ihnen sehr viel Spaß und ein langes Zeitvertreiben mit unserer APPlication."
+
+                android:textSize="19dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="
+" />
+            </LinearLayout>
+        </ScrollView>
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>
