@@ -86,6 +86,7 @@
                     android:clickable="true"
 
                     android:focusable="true"
+                    android:focusableInTouchMode="false"
 
                     app:backgroundTint="@android:color/black"
                     app:srcCompat="@android:drawable/ic_input_add"

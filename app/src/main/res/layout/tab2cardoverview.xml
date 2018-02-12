@@ -17,7 +17,7 @@
             android:layout_height="50dp"
             android:layout_alignStart="@+id/cardPictureInGameImageView"
             android:layout_alignTop="@+id/rightArrowImageButton"
-            android:background="@drawable/arrowl" />
+            android:background="@drawable/arrowleft" />
 
         <TextView
             android:id="@+id/firstNumberTextView"
@@ -62,7 +62,7 @@
             android:layout_alignEnd="@+id/cardPictureInGameImageView"
             android:layout_alignParentTop="true"
             android:layout_marginTop="16dp"
-            android:background="@drawable/arrowr" />
+            android:background="@drawable/arrowright" />
 
         <ImageView
             android:id="@+id/cardPictureInGameImageView"
