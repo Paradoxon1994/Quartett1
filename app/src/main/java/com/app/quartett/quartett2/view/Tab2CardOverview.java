@@ -5,6 +5,7 @@ import android.content.Context;
 
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
+import android.os.Vibrator;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -175,6 +176,8 @@ public class Tab2CardOverview extends Fragment{
 
 
     private void handleShakeEvent(int count) {
+        Vibrator v = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(400);
         int numberOfCards = MainActivity.getLoadedDeck().getCards().size();
         int n = new Random().nextInt(numberOfCards-1);
         Card c = MainActivity.getLoadedDeck().getCards().get(n);
