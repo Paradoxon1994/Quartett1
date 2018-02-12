@@ -1,16 +1,21 @@
 package com.app.quartett.quartett2.view;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import com.app.quartett.quartett2.MainActivity;
 import com.app.quartett.quartett2.MyPreferenceFragment;
@@ -94,6 +99,10 @@ public class InGame extends AppCompatActivity{
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ingame);
+
+
+
+
 
         //initialization
         initialization(findViewById(android.R.id.content));
@@ -297,6 +306,10 @@ public class InGame extends AppCompatActivity{
             }
         });
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
 
     }
 
@@ -306,6 +319,18 @@ public class InGame extends AppCompatActivity{
 
         startRound();
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // app icon in action bar clicked; go home
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 
@@ -664,8 +689,24 @@ public class InGame extends AppCompatActivity{
                 "drawable", context.getPackageName());
     }
 
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setMessage("Are you sure you want to exit?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        finish();
+                    }
+                })
+                .setNegativeButton("No", null)
+                .show();
+    }
+
 
     private void initialization(View v) {
+
+
 
         //atttribute name textviews
         attr1TextView = (Button) v.getRootView().findViewById(R.id.attr1TextView);
