@@ -8,17 +8,18 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background">
+        android:background="@drawable/background"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <TextView
             android:id="@+id/gameStateTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginLeft="16dp"
-            android:textSize="35sp"
             android:layout_centerHorizontal="true"
-             />
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:textSize="35sp" />
 
         <TextView
             android:id="@+id/playerRoundsWonTextView"
@@ -27,16 +28,17 @@
             android:layout_above="@+id/textView9"
             android:layout_toStartOf="@+id/notImportant"
             android:textSize="20dp" />
+
         <TextView
             android:id="@+id/notImportant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_below="@+id/gameStateTextView"
-            android:layout_marginTop="16dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginLeft="16dp"
-            android:textSize="20dp"
-            android:text=":" />
+            android:layout_marginTop="16dp"
+            android:text=":"
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/opponentPlayerRoundsWonTextView"
@@ -44,23 +46,10 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/notImportant"
             android:layout_below="@+id/gameStateTextView"
-            android:layout_marginTop="16dp"
             android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
             android:textSize="20dp" />
 
-
-
-        <Button
-            android:id="@+id/continueButton"
-            android:layout_width="130dp"
-            android:layout_height="40dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:background="@android:color/holo_blue_dark"
-            android:layout_marginRight="8dp"
-            android:text="Continue" />
 
         <TextView
             android:id="@+id/textView9"
@@ -75,10 +64,10 @@
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
             android:layout_alignStart="@+id/textView9"
             android:layout_below="@+id/textView9"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
             android:text="Rounds won:      " />
 
         <TextView
@@ -101,8 +90,8 @@
             android:layout_height="45dp"
             android:layout_below="@+id/textView10"
             android:layout_centerHorizontal="true"
-            android:background="@android:color/holo_blue_dark"
             android:layout_marginTop="20dp"
+            android:background="@android:color/holo_blue_dark"
             android:text="PLAY AGAIN" />
 
         <Button
@@ -111,8 +100,8 @@
             android:layout_height="45dp"
             android:layout_below="@+id/playAgainButton"
             android:layout_centerHorizontal="true"
-            android:background="@android:color/holo_blue_dark"
             android:layout_marginTop="16dp"
+            android:background="@android:color/holo_blue_dark"
             android:text="MAIN MENU" />
 
         <ImageButton
@@ -121,11 +110,11 @@
             android:layout_height="50dp"
             android:layout_below="@+id/mainMenuButton"
             android:layout_centerHorizontal="true"
-            android:scaleType="fitCenter"
-            android:src="@drawable/share"
+            android:layout_marginTop="16dp"
             android:background="@null"
             android:padding="5dp"
-            android:layout_marginTop="16dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/share"
             android:text="S" />
 
 
