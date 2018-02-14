@@ -349,7 +349,7 @@ public class InGame extends AppCompatActivity{
 
 
             roundCounter++;
-            numberOfRoundTextView.setText("R:" + Integer.toString(roundCounter));
+            numberOfRoundTextView.setText(Integer.toString(roundCounter));
             cardsLeftCounter.setText(Integer.toString(player.getCards().size()));
             //numberOfRoundTextView.setText( Integer.toString(roundCounter)+ " Cards left:  " + player.getCards().size());
             continueButton.setEnabled(false);
